@@ -101,6 +101,96 @@ header .r{color:rgba(244,239,230,.55)}
 .g5 .who{font-size:clamp(15px,1.9vw,21px);max-width:44ch;margin-left:auto;margin-right:auto}
 @media (max-width:640px){.gate{max-width:70vw}}
 
+
+/* ============ 3b. EVIDENCE ============ */
+.evidence{position:relative;padding:22svh clamp(20px,5vw,72px) 18svh;overflow:clip;background:
+  radial-gradient(100% 50% at 85% 0%, rgba(143,169,207,.09) 0%, transparent 55%),
+  radial-gradient(90% 55% at 8% 100%, rgba(224,138,60,.14) 0%, transparent 60%),
+  linear-gradient(180deg,#04060c 0%,#060a14 55%,#05080f 100%)}
+.evidence h2{font-family:var(--serif);font-size:clamp(44px,7.4vw,110px);line-height:1.02;letter-spacing:-.015em;max-width:15ch}
+.evidence h2 em{font-style:italic;color:var(--amber)}
+.ev-rows{margin-top:8svh;max-width:1180px;display:flex;flex-direction:column;gap:clamp(26px,4svh,44px)}
+.ev-row{display:grid;grid-template-columns:minmax(180px,300px) 1fr minmax(110px,160px);gap:clamp(14px,2.4vw,36px);align-items:center}
+.ev-label{display:block;font-size:clamp(16px,1.5vw,19px);line-height:1.4}
+.ev-n{display:block;margin-top:6px;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;color:var(--ink-faint)}
+.ev-track{height:22px;border-radius:11px;background:rgba(244,239,230,.06);overflow:hidden;position:relative}
+.ev-fill{height:100%;width:0;border-radius:11px;position:relative}
+.ev-fill.hot{background:linear-gradient(90deg,rgba(224,138,60,.55),#ffb35c);box-shadow:0 0 26px rgba(255,179,92,.5)}
+.ev-fill.warm{background:linear-gradient(90deg,rgba(208,106,61,.5),#e08a3c);box-shadow:0 0 18px rgba(224,138,60,.32)}
+.ev-fill.cold{background:linear-gradient(90deg,rgba(120,80,60,.5),#a06544);box-shadow:0 0 10px rgba(160,101,68,.2)}
+.ev-rate{font-family:var(--serif);font-size:clamp(46px,5.6vw,84px);line-height:1;text-align:right;color:var(--amber)}
+.ev-row.dim2 .ev-rate{color:var(--amber-deep)}
+.ev-row.dim3 .ev-rate{color:#a06544}
+.ev-rate sup{font-size:.45em;top:-.7em}
+.ev-kick{margin-top:9svh;font-family:var(--serif);font-style:italic;font-size:clamp(24px,3.4vw,44px);line-height:1.3;max-width:30ch}
+.ev-kick b{color:var(--amber);font-weight:400}
+@media (max-width:720px){.ev-row{grid-template-columns:1fr 90px;grid-template-areas:'meta rate' 'track track'}
+ .ev-row .ev-meta{grid-area:meta}.ev-row .ev-track{grid-area:track}.ev-row .ev-rate{grid-area:rate}}
+
+/* ============ 3c. FIXES ============ */
+.fixes{position:relative;padding:22svh clamp(20px,5vw,72px) 18svh;overflow:clip;background:
+  radial-gradient(120% 60% at 10% 110%, rgba(224,138,60,.16) 0%, transparent 60%),
+  radial-gradient(70% 40% at 92% 6%, rgba(143,169,207,.07) 0%, transparent 55%),
+  linear-gradient(180deg,#05080f 0%,#04060c 100%)}
+.fixes h2{font-family:var(--serif);font-size:clamp(44px,7.4vw,110px);line-height:1.02;letter-spacing:-.015em;max-width:14ch}
+.fixes h2 em{font-style:italic;color:var(--amber)}
+.fx-list{margin-top:8svh;display:flex;flex-direction:column;max-width:1180px}
+.fx{position:relative;padding:clamp(30px,5svh,52px) 0;border-top:1px solid rgba(244,239,230,.14);display:grid;
+  grid-template-columns:minmax(60px,110px) 1fr;gap:clamp(16px,3vw,44px)}
+.fx:last-child{border-bottom:1px solid rgba(244,239,230,.14)}
+.fx-n{font-family:var(--serif);font-style:italic;font-size:clamp(44px,6vw,92px);color:var(--amber);line-height:1;text-shadow:0 0 46px rgba(255,179,92,.4)}
+.fx h3{font-family:var(--serif);font-size:clamp(30px,4.4vw,62px);line-height:1.08;letter-spacing:-.01em;max-width:22ch}
+.fx-cols{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,3vw,44px);max-width:900px}
+.fx-cols h5{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;margin-bottom:9px}
+.fx-cols .buy h5{color:var(--amber)}
+.fx-cols .tax h5{color:var(--cool)}
+.fx-cols p{font-size:clamp(15.5px,1.35vw,17.5px);line-height:1.6;color:var(--ink-dim)}
+.fx-kick{margin-top:8svh;font-family:var(--serif);font-style:italic;font-size:clamp(24px,3.4vw,44px);line-height:1.3;max-width:28ch}
+.fx-kick b{color:var(--amber);font-weight:400}
+@media (max-width:720px){.fx{grid-template-columns:1fr;gap:10px}.fx-cols{grid-template-columns:1fr;gap:18px}}
+
+/* ============ 3d. SCENARIOS ============ */
+.scen{position:relative;padding:22svh clamp(20px,5vw,72px) 18svh;overflow:clip;background:
+  radial-gradient(140% 70% at 50% 115%, rgba(224,138,60,.16) 0%, rgba(224,138,60,.05) 42%, transparent 70%),
+  linear-gradient(180deg,#04060c 0%,#070c17 60%,#05080f 100%)}
+.scen h2{font-family:var(--serif);font-size:clamp(44px,7.4vw,110px);line-height:1.02;letter-spacing:-.015em;max-width:14ch}
+.scen h2 em{font-style:italic;color:var(--amber)}
+.sc-grid{margin-top:8svh;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,2vw,30px);max-width:1240px}
+.sc{border-top:1px solid rgba(244,239,230,.16);padding-top:20px}
+.sc .tag{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint)}
+.sc .signed{margin-top:16px;font-family:var(--serif);font-size:clamp(52px,6.6vw,104px);line-height:1;
+  background:linear-gradient(180deg,#fff8ec 20%,#e8c896 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sc .signed small{font-size:.32em;-webkit-text-fill-color:var(--ink-dim);font-family:var(--sans)}
+.sc .row{margin-top:14px;font-size:clamp(14.5px,1.15vw,15.5px);line-height:1.5;color:var(--ink-dim)}
+.sc .row b{color:var(--ink);font-weight:500}
+.sc.today{opacity:.5}
+.sc.today .signed{background:none;-webkit-background-clip:initial;background-clip:initial;color:var(--ink-dim);-webkit-text-fill-color:var(--ink-dim)}
+.sc.pick{position:relative}
+.sc.pick::before{content:'THE PLAN';position:absolute;top:-26px;left:0;font-family:var(--mono);font-size:10px;letter-spacing:.22em;color:var(--amber)}
+.sc.pick{border-top-color:var(--amber);background:radial-gradient(120% 90% at 50% 0%,rgba(255,179,92,.10),transparent 70%);border-radius:0 0 14px 14px;padding-left:14px;padding-right:14px;margin:0 -14px}
+.sc.pick .signed{-webkit-text-fill-color:initial;background:linear-gradient(180deg,#fff8ec 15%,var(--amber) 95%);-webkit-background-clip:text;background-clip:text}
+.sc-kick{margin-top:8svh;font-size:clamp(14.5px,1.3vw,17px);line-height:1.65;color:var(--ink-dim);max-width:64ch}
+.sc-kick b{color:var(--ink);font-weight:500}
+@media (max-width:840px){.sc-grid{grid-template-columns:1fr 1fr;row-gap:44px}}
+
+/* ============ 3e. PLAN ============ */
+.plan{position:relative;padding:22svh clamp(20px,5vw,72px) 20svh;overflow:clip;background:
+  radial-gradient(110% 55% at 85% 110%, rgba(224,138,60,.13) 0%, transparent 62%),
+  linear-gradient(180deg,#05080f 0%,#04060c 100%)}
+.plan h2{font-family:var(--serif);font-size:clamp(44px,7.4vw,110px);line-height:1.02;letter-spacing:-.015em;max-width:14ch}
+.plan h2 em{font-style:italic;color:var(--amber)}
+.pl-line{margin-top:9svh;position:relative;max-width:900px;padding-left:clamp(28px,4vw,54px)}
+.pl-line::before{content:'';position:absolute;left:8px;top:6px;bottom:6px;width:2px;border-radius:1px;
+  background:linear-gradient(180deg,var(--amber),rgba(224,138,60,.15));box-shadow:0 0 18px rgba(255,179,92,.35)}
+.pl-step{position:relative;padding-bottom:clamp(38px,7svh,64px)}
+.pl-step:last-child{padding-bottom:0}
+.pl-step::before{content:'';position:absolute;left:calc(8px - clamp(28px,4vw,54px));top:8px;width:13px;height:13px;border-radius:50%;
+  background:var(--amber);box-shadow:0 0 26px rgba(255,179,92,.8);transform:translateX(-5.5px)}
+.pl-days{font-family:var(--mono);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber)}
+.pl-step h4{margin-top:10px;font-family:var(--serif);font-size:clamp(30px,4vw,56px);line-height:1.1}
+.pl-step p{margin-top:12px;font-size:clamp(15.5px,1.35vw,17.5px);line-height:1.65;color:var(--ink-dim);max-width:56ch}
+.pl-step p b{color:var(--ink);font-weight:500}
+
 /* ============ 4. CLOSE ============ */
 .close{height:190svh;position:relative}
 .close .stick{position:sticky;top:0;height:100svh;overflow:clip;background:#03050a}
@@ -179,6 +269,79 @@ header .r{color:rgba(244,239,230,.55)}
   </div>
 </section>
 
+<!-- 3b · EVIDENCE -->
+<section class="evidence" id="evidence">
+  <div class="kicker">The evidence</div>
+  <h2>Booking is decided <em>in the first hour.</em></h2>
+  <div class="ev-rows">
+    <div class="ev-row"><div class="ev-meta"><span class="ev-label">Called back within the hour</span><span class="ev-n">74 requests · 44 booked</span></div><div class="ev-track"><div class="ev-fill hot" data-rate="59"></div></div><div class="ev-rate">59<sup>%</sup></div></div>
+    <div class="ev-row dim2"><div class="ev-meta"><span class="ev-label">Called back the same day</span><span class="ev-n">121 requests · 54 booked</span></div><div class="ev-track"><div class="ev-fill warm" data-rate="45"></div></div><div class="ev-rate">45<sup>%</sup></div></div>
+    <div class="ev-row dim3"><div class="ev-meta"><span class="ev-label">Called the next day, or later</span><span class="ev-n">217 requests · 59 booked</span></div><div class="ev-track"><div class="ev-fill cold" data-rate="27"></div></div><div class="ev-rate">27<sup>%</sup></div></div>
+  </div>
+  <p class="ev-kick">217 of the 412 waited a day or longer for a call. <b>That queue is where the $23,767 lives.</b></p>
+</section>
+
+<!-- 3c · FIXES -->
+<section class="fixes" id="fixes">
+  <div class="kicker">The fixes, priced honestly</div>
+  <h2>Three levers. <em>Every one pays a tax.</em></h2>
+  <div class="fx-list">
+    <article class="fx"><div class="fx-n">01</div><div>
+      <h3>Call every quote request within the hour.</h3>
+      <div class="fx-cols">
+        <div class="buy"><h5>What it buys</h5><p>More quote requests turn into booked assessments. The hour-one rate is 59%. The next-day rate is 27%. This lever moves people from the second queue into the first.</p></div>
+        <div class="tax"><h5>The tax it pays</h5><p>A dedicated callback role. $3,000 across the period, added to cost in every scenario below. Nothing here is priced as free.</p></div>
+      </div></div>
+    </article>
+    <article class="fx"><div class="fx-n">02</div><div>
+      <h3>Remind before every assessment.</h3>
+      <div class="fx-cols">
+        <div class="buy"><h5>What it buys</h5><p>Fewer empty driveways. Show rate moves from 56% to between 60 and 68%. That is the $6,431 gate closing most of the way.</p></div>
+        <div class="tax"><h5>The tax it pays</h5><p>No extra media. Run by the same callback role, already costed in lever one.</p></div>
+      </div></div>
+    </article>
+    <article class="fx"><div class="fx-n">03</div><div>
+      <h3>Broaden the audience, last.</h3>
+      <div class="fx-cols">
+        <div class="buy"><h5>What it buys</h5><p>20 to 40% more quote requests for the same media spend, once the funnel can hold what it catches.</p></div>
+        <div class="tax"><h5>The tax it pays</h5><p>Colder leads book less often. We take 2 to 5 points off the booking rate to pay for it, and that tax is in every forecast.</p></div>
+      </div></div>
+    </article>
+  </div>
+  <p class="fx-kick">No lever is free. <b>A plan that prices one as free is lying to you.</b></p>
+</section>
+
+<!-- 3d · SCENARIOS -->
+<section class="scen" id="scen">
+  <div class="kicker">Three honest futures</div>
+  <h2>The same season, <em>with the leaks closed.</em></h2>
+  <div class="sc-grid">
+    <div class="sc today"><div class="tag">Today</div><div class="signed">16<small> signed</small></div>
+      <div class="row"><b>$2,400</b> media per contract</div><div class="row"><b>54¢</b> of each GP dollar</div><div class="row"><b>$38,400</b> total cost</div></div>
+    <div class="sc"><div class="tag">Conservative</div><div class="signed">19<small> signed</small></div>
+      <div class="row"><b>$2,179</b> per contract</div><div class="row"><b>49¢</b> of each GP dollar</div><div class="row"><b>$41,400</b> total, tax in</div></div>
+    <div class="sc pick"><div class="tag">Expected</div><div class="signed">25<small> signed</small></div>
+      <div class="row"><b>$1,656</b> per contract</div><div class="row"><b>37¢</b> of each GP dollar</div><div class="row"><b>$41,400</b> total, tax in</div></div>
+    <div class="sc"><div class="tag">Stretch</div><div class="signed">34<small> signed</small></div>
+      <div class="row"><b>$1,218</b> per contract</div><div class="row"><b>27¢</b> of each GP dollar</div><div class="row"><b>$41,400</b> total, tax in</div></div>
+  </div>
+  <p class="sc-kick">Every future carries the $3,000 callback tax inside its total. <b>Expected is the plan.</b> Conservative still beats today on every line. Stretch is upside if the booking rate holds while the audience widens, and it is not the promise.</p>
+</section>
+
+<!-- 3e · PLAN -->
+<section class="plan" id="plan">
+  <div class="kicker">The first 90 days</div>
+  <h2>Fix the funnel first. <em>Then feed it.</em></h2>
+  <div class="pl-line">
+    <div class="pl-step"><div class="pl-days">Days 1 to 14</div><h4>Turn the lights on</h4>
+      <p>The callback role goes live: <b>every quote request called inside the hour</b>, reminders before every assessment. Levers one and two, $3,000 for the period, no new media.</p></div>
+    <div class="pl-step"><div class="pl-days">Days 15 to 45</div><h4>Hold and measure</h4>
+      <p>Weekly booking rate and show rate against the 59% hour-one benchmark. <b>No new spend until both hold for four straight weeks.</b> If they slip, the problem is operations, not media, and buying more leads would only make it dearer.</p></div>
+    <div class="pl-step"><div class="pl-days">Days 46 to 90</div><h4>Widen the net</h4>
+      <p>Broaden the audience and take the booking-rate tax knowingly. Target the expected future: <b>25 signed at $1,656 each</b>, with the conservative case as the floor the plan must clear.</p></div>
+  </div>
+</section>
+
 <!-- 4 · CLOSE -->
 <section class="close" id="close">
   <div class="stick">
@@ -187,7 +350,7 @@ header .r{color:rgba(244,239,230,.55)}
     <div class="scrim"></div>
     <div class="txt" id="closetxt">
       <h4>The demand didn't leave. <em>It's still behind those windows.</em></h4>
-      <p class="sub">Three fixes close the first two gates: answer inside the hour, remind before every visit, widen the net only once the leaks hold. Each is priced with the tax it pays. That is the rest of this review.</p>
+      <p class="sub">Answer inside the hour. Fill every driveway. Widen the net only once the funnel holds. $41,400 buys the expected future: 25 signed instead of 16, with every tax already paid.</p>
     </div>
     <div class="foot"><span>Halden Home Energy is a sample client. Figures are illustrative.</span><span>MV Advisory · Melbourne</span></div>
   </div>
@@ -371,13 +534,31 @@ if(!RM){
   }});
  gsap.to('.s-head',{opacity:0,y:-30,ease:'none',scrollTrigger:{trigger:'#streamstage',start:'6% top',end:'14% top',scrub:0.4}});
 
+ /* evidence bars */
+ gsap.utils.toArray('.ev-fill').forEach(el=>{
+  gsap.to(el,{width:el.dataset.rate+'%',duration:1.4,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 84%'}})});
+ gsap.utils.toArray('.ev-row').forEach((el,i)=>{
+  gsap.from(el,{opacity:0,y:26,duration:0.8,delay:i*0.12,ease:'power3.out',scrollTrigger:{trigger:'.ev-rows',start:'top 82%'}})});
+ gsap.from('.ev-kick',{opacity:0,y:24,duration:1,ease:'power3.out',scrollTrigger:{trigger:'.ev-kick',start:'top 86%'}});
+ /* fixes + scenarios + plan reveals */
+ gsap.utils.toArray('.fx').forEach(el=>{
+  gsap.from(el,{opacity:0,y:34,duration:0.9,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 84%'}})});
+ gsap.from('.fx-kick',{opacity:0,y:24,duration:1,ease:'power3.out',scrollTrigger:{trigger:'.fx-kick',start:'top 86%'}});
+ gsap.utils.toArray('.sc').forEach((el,i)=>{
+  gsap.from(el,{opacity:0,y:30,duration:0.9,delay:i*0.12,ease:'power3.out',scrollTrigger:{trigger:'.sc-grid',start:'top 80%'}})});
+ gsap.utils.toArray('.pl-step').forEach((el,i)=>{
+  gsap.from(el,{opacity:0,x:-26,duration:0.9,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 84%'}})});
+ gsap.utils.toArray('.evidence h2,.fixes h2,.scen h2,.plan h2').forEach(el=>{
+  gsap.from(el,{opacity:0,y:30,duration:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 84%'}})});
+
  /* close: scroll-driven wipe reveal */
  gsap.fromTo('#closeplate',{clipPath:'inset(100% 0 0 0)'},{clipPath:'inset(0% 0 0 0)',ease:'none',
-  scrollTrigger:{trigger:'#close',start:'top 85%',end:'top top',scrub:0.35}});
+  scrollTrigger:{trigger:'#close',start:'top 98%',end:'top 20%',scrub:0.35}});
  gsap.to('#closeimg',{scale:1.0,ease:'none',scrollTrigger:{trigger:'#close',start:'top top',end:'bottom bottom',scrub:0.4}});
  gsap.from('#closetxt',{opacity:0,y:44,duration:1.1,ease:'power3.out',scrollTrigger:{trigger:'#close',start:'top 12%'}});
 }else{
  camY=Math.max(0,SCENE*0.86-innerHeight*0.6);
+ document.querySelectorAll('.ev-fill').forEach(el=>{el.style.width=el.dataset.rate+'%'});
 }
 </script>
 </body>
