@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Halden Home Energy · Funnel Review — MV Advisory</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#05080f; --ink:#f4efe6; --ink-dim:rgba(244,239,230,.66); --ink-faint:rgba(244,239,230,.4);
+  --amber:#ffb35c; --amber-deep:#e08a3c; --ember:#d06a3d; --cool:#8fa9cf;
+  --serif:'Instrument Serif',serif; --sans:'Geist',system-ui,sans-serif; --mono:'Geist Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{background:var(--bg)}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:clip}
+::selection{background:rgba(255,179,92,.28)}
+
+.grain{position:fixed;inset:-100px;z-index:60;pointer-events:none;opacity:.06;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.prog{position:fixed;top:0;left:0;width:100%;height:2px;z-index:70;background:linear-gradient(90deg,var(--amber),var(--amber-deep));transform-origin:0 50%;transform:scaleX(0)}
+header{position:fixed;top:0;left:0;right:0;z-index:65;display:flex;justify-content:space-between;align-items:center;
+  padding:20px clamp(20px,4vw,44px);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(244,239,230,.8);
+  mix-blend-mode:difference}
+header .r{color:rgba(244,239,230,.55)}
+@media (max-width:640px){header .r span.hide{display:none}}
+
+/* ============ 1. COVER ============ */
+.cover{height:150svh;position:relative}
+.cover .stick{position:sticky;top:0;height:100svh;overflow:clip}
+.cover .plate{position:absolute;inset:0}
+.cover .plate img{width:100%;height:100%;object-fit:cover;transform:scale(1.16);will-change:transform}
+.cover .grade{position:absolute;inset:0;mix-blend-mode:soft-light;background:linear-gradient(200deg,rgba(20,60,110,.55),rgba(255,140,40,.35) 85%)}
+.cover .vig{position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 45%,transparent 50%,rgba(3,5,10,.55) 100%)}
+.cover .scrim{position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(5,8,15,.66) 0%,rgba(5,8,15,.2) 30%,rgba(5,8,15,0) 55%,rgba(5,8,15,.6) 100%)}
+.cover .dim{position:absolute;inset:0;background:rgba(3,5,10,.55);opacity:0;backdrop-filter:blur(0px)}
+.cover .dark{position:absolute;inset:0;background:var(--bg);opacity:0}
+.cover .txt{position:absolute;left:clamp(20px,5vw,72px);right:clamp(20px,5vw,72px);top:16svh;z-index:3}
+.kicker{font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-dim);display:flex;gap:14px;align-items:center;margin-bottom:26px}
+.kicker::before{content:'';width:34px;height:1px;background:var(--amber);display:inline-block}
+.h-giant{font-family:var(--serif);font-size:clamp(48px,9.6vw,142px);line-height:.97;letter-spacing:-.015em;max-width:11ch;text-wrap:balance;text-shadow:0 2px 46px rgba(5,8,15,.5)}
+.h-giant em{font-style:italic;color:var(--amber)}
+.beat2{position:absolute;left:clamp(20px,5vw,72px);right:clamp(20px,5vw,72px);top:14svh;z-index:3;opacity:0}
+.beat2 .h-giant{font-size:clamp(64px,13vw,190px)}
+.beat2 .sub{margin-top:24px;font-size:clamp(16px,1.7vw,20px);line-height:1.55;color:var(--ink);opacity:.85;max-width:42ch;text-shadow:0 1px 18px rgba(5,8,15,.6)}
+.cue{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:10px;
+  font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-faint)}
+.cue i{display:block;width:1px;height:44px;background:linear-gradient(180deg,var(--amber),transparent);animation:drip 2.2s ease-in-out infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ============ 2. VERDICT ============ */
+.verdict{position:relative;padding:24svh clamp(20px,5vw,72px) 20svh;overflow:clip;background:
+  radial-gradient(130% 60% at 50% 120%, rgba(224,138,60,.20) 0%, rgba(224,138,60,.06) 40%, transparent 68%),
+  radial-gradient(80% 40% at 15% -8%, rgba(143,169,207,.08) 0%, transparent 60%),
+  linear-gradient(180deg,#05080f 0%,#070c17 50%,#04060c 100%)}
+.verdict .orb{position:absolute;width:560px;height:560px;border-radius:50%;filter:blur(100px);background:radial-gradient(circle,rgba(224,138,60,.13),transparent 65%);right:-180px;top:6%;pointer-events:none}
+.v-line{overflow:clip}
+.v-line span{display:block;transform:translateY(112%)}
+.verdict h2{font-family:var(--serif);font-size:clamp(44px,8vw,118px);line-height:1;letter-spacing:-.015em;max-width:14ch}
+.verdict h2 em{font-style:italic;color:var(--amber)}
+.v-data{margin-top:9svh;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3.4vw,52px);max-width:1180px}
+.v-cell{border-top:1px solid rgba(244,239,230,.16);padding-top:22px}
+.v-cell .n{font-family:var(--serif);font-size:clamp(56px,7.6vw,116px);line-height:1;letter-spacing:-.01em;
+  background:linear-gradient(180deg,#fff8ec 20%,#e8c896 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.v-cell .n sup{font-size:.4em;top:-.8em;background:none;-webkit-text-fill-color:var(--amber)}
+.v-cell p{margin-top:14px;font-size:clamp(15px,1.2vw,16.5px);line-height:1.55;color:var(--ink-dim);max-width:26ch}
+.v-kick{margin-top:10svh;font-family:var(--serif);font-style:italic;font-size:clamp(26px,3.8vw,50px);line-height:1.25;max-width:26ch}
+.v-kick b{color:var(--amber);font-weight:400}
+@media (max-width:720px){.v-data{grid-template-columns:1fr;gap:30px}.v-cell .n{font-size:clamp(52px,15vw,80px)}.verdict{padding-top:20svh}}
+
+/* ============ 3. STREAM ============ */
+.stream{position:relative}
+.stream .stage{height:600svh}
+.stream .stick{position:sticky;top:0;height:100svh;overflow:clip;background:
+  radial-gradient(90% 50% at 50% 0%, #081020 0%, #04060c 70%)}
+#flowc{position:absolute;inset:0;width:100%;height:100%}
+.s-head{position:absolute;top:0;left:0;right:0;padding:10svh clamp(20px,5vw,72px) 0;z-index:4;pointer-events:none}
+.s-head .k2{font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-dim)}
+.s-head h3{font-family:var(--serif);font-size:clamp(36px,5.8vw,80px);line-height:1.03;margin-top:14px;max-width:15ch}
+.s-head h3 em{font-style:italic;color:var(--amber)}
+.gate{position:absolute;z-index:4;max-width:min(44vw,430px);opacity:0;pointer-events:none}
+.gate .amt{font-family:var(--serif);font-size:clamp(40px,5.6vw,84px);line-height:1;color:var(--amber);text-shadow:0 0 60px rgba(255,179,92,.35)}
+.gate.cold .amt{color:var(--ember);text-shadow:0 0 50px rgba(208,106,61,.3)}
+.gate .who{margin-top:10px;font-size:clamp(16px,1.5vw,18px);line-height:1.45}
+.gate .why{margin-top:7px;font-size:clamp(14px,1.1vw,15px);line-height:1.55;color:var(--ink-dim)}
+.gate .tick{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--ink-faint);margin-bottom:12px;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.gate .tick::before{content:'';width:26px;height:1px;background:var(--amber-deep)}
+.gate.right{text-align:right}
+.gate.right .tick{flex-direction:row-reverse}
+.g1{left:clamp(20px,6vw,90px);top:26svh}
+.g2{right:clamp(20px,6vw,90px);top:26svh}
+.g3{left:clamp(20px,6vw,90px);top:26svh}
+.g4{right:clamp(20px,6vw,90px);top:26svh}
+.g5{left:0;right:0;top:24svh;margin:auto;text-align:center;max-width:min(88vw,640px)}
+.g5 .amt{font-size:clamp(56px,9vw,124px)}
+.g5 .who{font-size:clamp(15px,1.9vw,21px);max-width:44ch;margin-left:auto;margin-right:auto}
+@media (max-width:640px){.gate{max-width:70vw}}
+
+/* ============ 4. CLOSE ============ */
+.close{height:190svh;position:relative}
+.close .stick{position:sticky;top:0;height:100svh;overflow:clip;background:#03050a}
+.close .plate{position:absolute;inset:0;clip-path:inset(100% 0 0 0);will-change:clip-path}
+.close .plate img{width:100%;height:100%;object-fit:cover;transform:scale(1.12);will-change:transform}
+.close .grade{position:absolute;inset:0;z-index:1;mix-blend-mode:soft-light;background:linear-gradient(200deg,rgba(20,50,100,.5),rgba(255,140,40,.25) 90%)}
+.close .scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(3,5,10,.74) 0%,rgba(3,5,10,.24) 42%,rgba(3,5,10,.66) 100%)}
+.close .txt{position:absolute;inset:auto clamp(20px,5vw,72px) 15svh;z-index:3}
+.close h4{font-family:var(--serif);font-size:clamp(42px,7.4vw,110px);line-height:1.01;letter-spacing:-.015em;max-width:13ch;text-wrap:balance;text-shadow:0 2px 40px rgba(3,5,10,.6)}
+.close h4 em{font-style:italic;color:var(--amber)}
+.close .sub{margin-top:24px;font-size:clamp(16px,1.7vw,19px);line-height:1.6;color:var(--ink);opacity:.82;max-width:52ch}
+.close .foot{position:absolute;bottom:26px;left:clamp(20px,5vw,72px);right:clamp(20px,5vw,72px);z-index:3;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  font-size:11px;letter-spacing:.08em;color:var(--ink-faint)}
+
+@media (prefers-reduced-motion:reduce){
+  .cover,.close{height:auto}.stream .stage{height:auto}
+  .cover .stick,.close .stick,.stream .stick{position:relative;height:auto;min-height:100svh}
+  .v-line span{transform:none}.gate{position:relative;opacity:1;inset:auto;margin:30px clamp(20px,5vw,72px)}
+  .beat2{position:relative;opacity:1;top:auto;margin-top:40px}.close .plate{clip-path:none}.cue i{animation:none}
+}
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<div class="prog" id="prog" aria-hidden="true"></div>
+<header><span>MV&nbsp;Advisory</span><span class="r">Funnel Review · <span class="hide">Halden Home Energy · </span>Sample</span></header>
+
+<!-- 1 · COVER -->
+<section class="cover" id="cover">
+  <div class="stick">
+    <div class="plate"><img id="heroimg" src="assets/hero.jpg" alt="Australian suburb at dusk, scattered warm window lights"></div>
+    <div class="grade"></div><div class="vig"></div>
+    <div class="scrim"></div>
+    <div class="dim" id="coverdim"></div>
+    <div class="dark" id="coverdark"></div>
+    <div class="txt" id="beat1">
+      <div class="kicker">Paid acquisition review · Winter 2026</div>
+      <h1 class="h-giant">412 of these homes asked for a quote.</h1>
+    </div>
+    <div class="beat2" id="beat2">
+      <div class="kicker">The season, signed</div>
+      <h1 class="h-giant"><em>16</em> said yes.</h1>
+      <p class="sub">$38,400 of media brought 412 households to the door. This review follows that money through the funnel, and shows where the other 396 went.</p>
+    </div>
+    <div class="cue">Scroll<i></i></div>
+  </div>
+</section>
+
+<!-- 2 · VERDICT -->
+<section class="verdict" id="verdict">
+  <div class="orb" aria-hidden="true"></div>
+  <div class="v-line"><span><h2>The ads did <em>their</em> job.</h2></span></div>
+  <div class="v-data">
+    <div class="v-cell"><div class="n">412</div><p>quote requests at $93 of media each. Real demand, at a fair price.</p></div>
+    <div class="v-cell"><div class="n">$2,400</div><p>of media inside every signed contract by the time the funnel is done with it.</p></div>
+    <div class="v-cell"><div class="n">54<sup>¢</sup></div><p>of every gross-profit dollar goes back to acquisition. That is the leak's true size.</p></div>
+  </div>
+  <p class="v-kick">The leak is not at the click. <b>It starts after the phone should have rung.</b></p>
+</section>
+
+<!-- 3 · STREAM -->
+<section class="stream" id="stream">
+  <div class="stage" id="streamstage">
+    <div class="stick">
+      <canvas id="flowc"></canvas>
+      <div class="s-head">
+        <div class="k2">Where the money went</div>
+        <h3>$38,400 goes in. <em>Watch what falls away.</em></h3>
+      </div>
+      <div class="gate g1" id="gate0"><div class="tick">Gate 1 · Quote → booking</div><div class="amt">$23,767</div><div class="who">255 households asked and never got a call back.</div><div class="why">Six of every ten hands raised. Most were simply called too late, or not at all.</div></div>
+      <div class="gate right cold g2" id="gate1"><div class="tick">Gate 2 · Booked → attended</div><div class="amt">$6,431</div><div class="who">69 booked an assessment. Nobody came.</div><div class="why">No reminder, no confirmation, an empty driveway either way.</div></div>
+      <div class="gate cold g3" id="gate2"><div class="tick">Gate 3 · Attended → proposal</div><div class="amt">$2,517</div><div class="who">27 sat through an assessment and never saw a proposal.</div><div class="why">The visit happened. The paperwork never did.</div></div>
+      <div class="gate right cold g4" id="gate3"><div class="tick">Gate 4 · Proposal → signed</div><div class="amt">$4,194</div><div class="who">45 heard the pitch and said no.</div><div class="why">The only leak that is allowed to exist. Not at this size.</div></div>
+      <div class="gate g5" id="gate4"><div class="tick" style="justify-content:center">What made it through</div><div class="amt">16 signed</div><div class="who">$236,800 contracted. And $22,909 of media spent on people who never heard back.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · CLOSE -->
+<section class="close" id="close">
+  <div class="stick">
+    <div class="plate" id="closeplate"><img id="closeimg" src="assets/close.jpg" alt="Suburb at night, lit windows like embers"></div>
+    <div class="grade"></div>
+    <div class="scrim"></div>
+    <div class="txt" id="closetxt">
+      <h4>The demand didn't leave. <em>It's still behind those windows.</em></h4>
+      <p class="sub">Three fixes close the first two gates: answer inside the hour, remind before every visit, widen the net only once the leaks hold. Each is priced with the tax it pays. That is the rest of this review.</p>
+    </div>
+    <div class="foot"><span>Halden Home Energy is a sample client. Figures are illustrative.</span><span>MV Advisory · Melbourne</span></div>
+  </div>
+</section>
+
+<script src="../vendor/gsap.min.js"></script>
+<script src="../vendor/ScrollTrigger.min.js"></script>
+<script src="../vendor/lenis.min.js"></script>
+<script>
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* =================== THE RIVER =================== */
+/* A vertical river of light. Its width is the money still alive.
+   At each gate a share of the flow tears off sideways as embers and dies.
+   The camera scrolls down the scene; the river narrows 412 -> 16.  */
+const cv=document.getElementById('flowc'),cx=cv.getContext('2d');
+const KEEP=[412,157,88,61,16];
+const GY=[0.14,0.32,0.50,0.68,0.86];
+let CW=0,CH=0,DPR=1,SCENE=1,camY=0;
+function resize(){DPR=Math.min(devicePixelRatio||1,1.6);CW=cv.clientWidth;CH=cv.clientHeight;cv.width=CW*DPR;cv.height=CH*DPR;cx.setTransform(DPR,0,0,DPR,0,0);SCENE=CH*2.4}
+resize();addEventListener('resize',resize);
+
+function widthAt(f){
+ const base=Math.min(CW*0.30,Math.max(CW*0.17,120));
+ const scale=n=>0.16+0.84*Math.sqrt(n/412);
+ let seg=0;while(seg<GY.length&&f>GY[seg])seg++;
+ const w0=seg===0?1:scale(KEEP[seg-1]);
+ const w1=scale(KEEP[Math.min(seg,KEEP.length-1)]);
+ const a=seg===0?0:GY[seg-1],b=GY[Math.min(seg,GY.length-1)];
+ let t=b>a?Math.min(1,Math.max(0,(f-a)/(b-a))):1;
+ t=t*t*(3-2*t);
+ return base*(w0+(w1-w0)*t);
+}
+function makeSprite(inner,mid,outer){const s=document.createElement('canvas');s.width=s.height=96;const g=s.getContext('2d');
+ const r=g.createRadialGradient(48,48,0,48,48,48);r.addColorStop(0,inner);r.addColorStop(.3,mid);r.addColorStop(1,outer);
+ g.fillStyle=r;g.fillRect(0,0,96,96);return s}
+const spGold=makeSprite('rgba(255,224,170,1)','rgba(255,179,92,.8)','rgba(224,138,60,0)');
+const spEmber=makeSprite('rgba(255,170,110,.95)','rgba(208,106,61,.5)','rgba(140,70,50,0)');
+
+const PCOUNT=innerWidth<700?150:260;
+const PARTS=[];let pid=0;
+function spawn(p){p=p||{};p.id=pid++;p.f=-0.03*Math.random();p.x=(Math.random()*2-1)*0.9;p.v=0.05+Math.random()*0.035;p.w=Math.random();p.leaked=-1;p.lt=0;p.sz=16+Math.random()*22;p.gdone=-1;return p}
+for(let i=0;i<PCOUNT;i++){const p=spawn();p.f=Math.random()*1.05;PARTS.push(p)}
+function gateFrac(i){const before=i===0?412:KEEP[i-1];return 1-KEEP[i]/before}
+
+let last=0;
+function tick(t){
+ const dt=Math.min(0.05,(t-last)/1000||0.016);last=t;
+ cx.clearRect(0,0,CW,CH);
+ const cxm=CW/2;
+
+ cx.save();cx.globalCompositeOperation='lighter';
+
+ /* 1 · river body: three additive ribbons */
+ const steps=44;
+ for(let layer=0;layer<3;layer++){
+  const la=[0.16,0.10,0.055][layer], wm=[0.55,0.8,1.15][layer];
+  cx.beginPath();
+  for(let i=0;i<=steps;i++){
+   const y=(i/steps)*CH, f=(camY+y)/SCENE;
+   const wob=Math.sin(f*46+t*0.0009*(1+layer*0.4))*CW*0.006*(layer+1);
+   const x=cxm-widthAt(f)*wm+wob;
+   i?cx.lineTo(x,y):cx.moveTo(x,y);
+  }
+  for(let i=steps;i>=0;i--){
+   const y=(i/steps)*CH, f=(camY+y)/SCENE;
+   const wob=Math.sin(f*46+t*0.0009*(1+layer*0.4)+2.1)*CW*0.006*(layer+1);
+   cx.lineTo(cxm+widthAt(f)*wm+wob,y);
+  }
+  cx.closePath();
+  const grad=cx.createLinearGradient(cxm-CW*0.25,0,cxm+CW*0.25,0);
+  grad.addColorStop(0,'rgba(224,110,50,0)');
+  grad.addColorStop(0.5,`rgba(255,170,80,${la})`);
+  grad.addColorStop(1,'rgba(224,110,50,0)');
+  cx.fillStyle=grad;cx.fill();
+ }
+ /* hot core */
+ cx.beginPath();
+ for(let i=0;i<=steps;i++){const y=(i/steps)*CH,f=(camY+y)/SCENE;
+  const x=cxm+Math.sin(f*30+t*0.0012)*widthAt(f)*0.18;
+  i?cx.lineTo(x,y):cx.moveTo(x,y)}
+ cx.strokeStyle='rgba(255,214,150,.20)';cx.lineWidth=Math.max(3,CW*0.004);cx.stroke();
+
+ /* 2 · gate shears */
+ for(let gi=0;gi<GY.length;gi++){
+  const gy=GY[gi]*SCENE-camY;
+  if(gy<-60||gy>CH+60)continue;
+  const hw=widthAt(GY[gi]-0.005)*1.2;
+  const lg=cx.createLinearGradient(cxm-hw,0,cxm+hw,0);
+  lg.addColorStop(0,'rgba(255,179,92,0)');lg.addColorStop(.5,'rgba(255,200,130,.5)');lg.addColorStop(1,'rgba(255,179,92,0)');
+  cx.fillStyle=lg;cx.fillRect(cxm-hw,gy-1,hw*2,2);
+ }
+
+ /* 3 · particles + embers */
+ for(const p of PARTS){
+  if(p.leaked<0){
+   p.f+=p.v*dt*0.5;
+   for(let gi=0;gi<GY.length-1;gi++){
+    if(p.f>GY[gi]&&p.gdone<gi){
+     p.gdone=gi;
+     if(((p.id*2654435761>>>8)%1000)/1000<gateFrac(gi)){p.leaked=gi;p.side=(p.x>=0?1:-1);p.lt=0}
+    }
+   }
+  }
+  let sx,sy,alpha,spr,size;
+  if(p.leaked>=0){
+   p.lt+=dt;
+   const hw=widthAt(GY[p.leaked]);
+   sx=cxm+p.x*hw+p.side*(p.lt*p.lt*CW*0.16+p.lt*CW*0.10);
+   sy=(GY[p.leaked])*SCENE-camY+p.lt*CH*0.06+p.lt*p.lt*CH*0.05;
+   alpha=Math.max(0,1-p.lt*0.7);
+   spr=spEmber;size=p.sz*(1+p.lt*0.6);
+   if(alpha<=0){Object.assign(p,spawn())}
+  }else{
+   const hw=widthAt(p.f);
+   p.x+=Math.sin(t*0.0011*(0.6+p.w)+p.id)*0.004*dt*60;
+   p.x=Math.max(-1,Math.min(1,p.x));
+   sx=cxm+p.x*hw*0.85;sy=p.f*SCENE-camY;
+   alpha=p.f<0?0:1;spr=spGold;size=p.sz;
+   if(p.f>1.03)Object.assign(p,spawn());
+   if(p.f>GY[4]){size=p.sz*1.35}
+  }
+  if(sy<-90||sy>CH+90)continue;
+  const flick=0.7+0.3*Math.sin(t*0.004*(0.5+p.w)+p.id*1.7);
+  cx.globalAlpha=Math.max(0,Math.min(1,alpha*flick));
+  cx.drawImage(spr,sx-size/2,sy-size/2,size,size);
+ }
+ cx.globalAlpha=1;
+
+ /* 4 · pool of what survived */
+ const py=GY[4]*SCENE-camY+CH*0.06;
+ if(py>-260&&py<CH+260){
+  const g=cx.createRadialGradient(cxm,py,0,cxm,py,CW*0.3);
+  g.addColorStop(0,'rgba(255,190,110,.30)');g.addColorStop(.5,'rgba(255,170,80,.10)');g.addColorStop(1,'rgba(255,170,80,0)');
+  cx.fillStyle=g;cx.beginPath();cx.arc(cxm,py,CW*0.3,0,7);cx.fill();
+ }
+ cx.restore();
+ requestAnimationFrame(tick);
+}
+requestAnimationFrame(tick);
+
+/* =================== SCROLL =================== */
+if(!RM){
+ gsap.registerPlugin(ScrollTrigger);
+ const lenis=new Lenis({lerp:0.11});
+ lenis.on('scroll',ScrollTrigger.update);
+ gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0);
+
+ gsap.to('#prog',{scaleX:1,ease:'none',scrollTrigger:{start:0,end:()=>document.body.scrollHeight-innerHeight,scrub:0.3}});
+
+ /* cover */
+ gsap.to('#heroimg',{scale:1.0,ease:'none',scrollTrigger:{trigger:'#cover',start:'top top',end:'bottom bottom',scrub:0.4}});
+ gsap.to('#beat1',{opacity:0,y:-46,filter:'blur(6px)',ease:'none',scrollTrigger:{trigger:'#cover',start:'10% top',end:'34% top',scrub:0.4}});
+ gsap.fromTo('#beat2',{opacity:0,y:34},{opacity:1,y:0,ease:'none',scrollTrigger:{trigger:'#cover',start:'30% top',end:'46% top',scrub:0.4}});
+ gsap.to('#coverdim',{opacity:1,ease:'none',scrollTrigger:{trigger:'#cover',start:'28% top',end:'44% top',scrub:0.4}});
+ gsap.to('#coverdark',{opacity:1,ease:'none',scrollTrigger:{trigger:'#cover',start:'72% top',end:'96% top',scrub:0.4}});
+ gsap.to('.cue',{opacity:0,scrollTrigger:{trigger:'#cover',start:'6% top',end:'14% top',scrub:true}});
+
+ /* verdict */
+ gsap.utils.toArray('.v-line span').forEach(el=>{
+  gsap.to(el,{y:0,duration:1.1,ease:'power4.out',scrollTrigger:{trigger:el,start:'top 82%'}})});
+ gsap.utils.toArray('.v-cell').forEach((el,i)=>{
+  gsap.from(el,{opacity:0,y:30,duration:0.9,delay:i*0.14,ease:'power3.out',scrollTrigger:{trigger:'.v-data',start:'top 80%'}})});
+ gsap.from('.v-kick',{opacity:0,y:24,duration:1,ease:'power3.out',scrollTrigger:{trigger:'.v-kick',start:'top 84%'}});
+
+ /* stream camera */
+ const gates=[0,1,2,3,4].map(i=>document.getElementById('gate'+i));
+ ScrollTrigger.create({trigger:'#streamstage',start:'top top',end:'bottom bottom',scrub:0.3,
+  onUpdate(st){
+   camY=st.progress*(SCENE-CH*0.45);
+   let best=-1,bd=1e9;
+   gates.forEach((g,i)=>{
+    const gy=GY[i]*SCENE-camY, d=Math.abs(gy-CH*0.46);
+    if(gy>CH*0.06&&gy<CH*0.82&&d<bd){bd=d;best=i}
+   });
+   if(st.progress>0.93)best=4; // hold the payoff card to the end
+   gates.forEach((g,i)=>{
+    const on=i===best;
+    gsap.to(g,{opacity:on?1:0,y:on?0:26,duration:0.45,overwrite:'auto'});
+   });
+  }});
+ gsap.to('.s-head',{opacity:0,y:-30,ease:'none',scrollTrigger:{trigger:'#streamstage',start:'6% top',end:'14% top',scrub:0.4}});
+
+ /* close: scroll-driven wipe reveal */
+ gsap.fromTo('#closeplate',{clipPath:'inset(100% 0 0 0)'},{clipPath:'inset(0% 0 0 0)',ease:'none',
+  scrollTrigger:{trigger:'#close',start:'top 85%',end:'top top',scrub:0.35}});
+ gsap.to('#closeimg',{scale:1.0,ease:'none',scrollTrigger:{trigger:'#close',start:'top top',end:'bottom bottom',scrub:0.4}});
+ gsap.from('#closetxt',{opacity:0,y:44,duration:1.1,ease:'power3.out',scrollTrigger:{trigger:'#close',start:'top 12%'}});
+}else{
+ camY=Math.max(0,SCENE*0.86-innerHeight*0.6);
+}
+</script>
+</body>
+</html>
