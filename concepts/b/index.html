@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Funnel Review · Halden Home Energy · Concept B: The Broadsheet</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..600&family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F3EEE4; --paper2:#EAE3D5; --ink:#17140F; --ink2:#3A352C; --mute:#6D6558; --rule:rgba(23,20,15,.16); --rule2:rgba(23,20,15,.5);
+  --red:#B3261E; --green:#2F6B4F;
+  --serif:'Newsreader',Georgia,serif; --sans:'Libre Franklin',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{background:var(--paper);color:var(--ink);font-family:var(--serif);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-optical-sizing:auto}
+html.mv-wait body{opacity:0} html.mv-ready body{opacity:1;transition:opacity .6s ease}
+body{overflow-x:hidden}
+.tnum{font-variant-numeric:tabular-nums lining-nums}
+.col{max-width:1180px;margin:0 auto;padding:0 5vw}
+.kicker{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+.label{font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+h1,h2{font-weight:400;letter-spacing:-.02em;text-wrap:balance}
+p{text-wrap:pretty}
+.rv{opacity:0;transform:translateY(14px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+/* grid: 12 col with margin notes */
+.story{display:grid;grid-template-columns:repeat(12,1fr);column-gap:28px}
+.main{grid-column:1/9}
+.margin{grid-column:9/13;padding-left:26px;border-left:1px solid var(--rule)}
+
+/* masthead / cover */
+.mast{min-height:100svh;display:flex;flex-direction:column;padding-block:26px 40px}
+.mast-top{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid var(--ink);padding-bottom:12px;gap:16px;flex-wrap:wrap}
+.mast-title{font-family:var(--serif);font-size:clamp(22px,2.2vw,30px);font-weight:600;letter-spacing:-.01em;font-style:italic}
+.mast-sub{display:flex;justify-content:space-between;border-bottom:1px solid var(--rule2);padding:9px 0;gap:16px;flex-wrap:wrap}
+.cover-body{flex:1;display:grid;grid-template-columns:repeat(12,1fr);column-gap:28px;align-items:end;padding-top:8vh}
+.cover-body h1{grid-column:1/10;font-size:clamp(46px,7.2vw,112px);line-height:.98;font-weight:350}
+.cover-body h1 i{font-weight:300;color:var(--red)}
+.stand{grid-column:1/8;font-size:clamp(19px,1.7vw,24px);line-height:1.45;color:var(--ink2);margin-top:4vh}
+.byline{grid-column:9/13;align-self:end;border-top:1px solid var(--ink);padding-top:12px;font-family:var(--sans);font-size:13px;line-height:1.6;color:var(--ink2)}
+.byline b{font-weight:600;color:var(--ink)}
+
+/* sections */
+.sec{padding-block:16vh}
+.sec-head{display:grid;grid-template-columns:repeat(12,1fr);column-gap:28px;border-top:2px solid var(--ink);padding-top:14px;margin-bottom:6vh}
+.sec-head .kicker{grid-column:1/4}
+.sec-head h2{grid-column:4/13;font-size:clamp(34px,4.4vw,64px);line-height:1.02;font-weight:400}
+
+/* lede */
+.lede{font-size:clamp(21px,1.75vw,25px);line-height:1.55;color:var(--ink2)}
+.lede p+p{margin-top:1.1em}
+.lede p:first-child::first-letter{float:left;font-size:5.2em;line-height:.8;padding:.07em .08em 0 0;font-weight:500;color:var(--ink)}
+.pull{font-size:clamp(88px,10vw,150px);line-height:.9;font-weight:300;letter-spacing:-.04em;color:var(--red)}
+.pull+p{font-size:17px;line-height:1.5;color:var(--ink2);margin-top:14px}
+.margin .note{font-family:var(--sans);font-size:14px;line-height:1.6;color:var(--mute);margin-top:34px}
+.margin .note b{color:var(--ink);font-weight:600}
+
+/* waterfall */
+.wf{margin-top:2vh}
+.wrow{display:grid;grid-template-columns:230px 1fr 170px;align-items:center;gap:22px;padding:18px 0;border-bottom:1px solid var(--rule)}
+.wrow:first-child{border-top:1px solid var(--rule2)}
+.wname{font-family:var(--sans);font-size:14px;font-weight:500;line-height:1.35}
+.wname span{display:block;font-family:var(--serif);font-size:34px;font-weight:400;margin-top:2px}
+.wbar{position:relative;height:30px}
+.wbar .kept,.wbar .lost{position:absolute;top:0;bottom:0;transform-origin:left;transform:scaleX(0);transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.wbar .kept{left:0;background:var(--ink)}
+.wbar .lost{background:repeating-linear-gradient(135deg,rgba(179,38,30,.85) 0 2px,transparent 2px 7px);border:1px solid rgba(179,38,30,.7)}
+.rv.in .wbar .kept,.rv.in .wbar .lost{transform:scaleX(1)}
+.rv.in .wbar .lost{transition-delay:.5s}
+.wloss{font-family:var(--sans);font-size:13px;line-height:1.45;color:var(--red);text-align:right}
+.wloss b{display:block;font-family:var(--serif);font-size:24px;font-weight:400}
+.wkey{display:flex;gap:26px;margin-top:18px;font-family:var(--sans);font-size:12.5px;color:var(--mute)}
+.wkey i{display:inline-block;width:14px;height:10px;margin-right:8px;vertical-align:-1px}
+
+/* dot grids */
+.dots3{display:grid;grid-template-columns:repeat(3,1fr);gap:4vw;margin-top:2vh}
+.dg{display:grid;grid-template-columns:repeat(10,1fr);gap:5px;margin:18px 0 16px;max-width:260px}
+.dg i{aspect-ratio:1;border-radius:50%;border:1px solid var(--rule2);transition:background .5s}
+.dg i.on{border-color:transparent}
+.dcap .big{font-size:clamp(56px,6vw,88px);line-height:.95;font-weight:300;letter-spacing:-.03em}
+.dcap .lbl{font-family:var(--sans);font-size:14px;font-weight:600;margin-top:4px}
+.dcap .sub{font-family:var(--sans);font-size:13px;color:var(--mute);margin-top:6px}
+.src{font-family:var(--sans);font-size:12.5px;color:var(--mute);margin-top:5vh;border-top:1px solid var(--rule);padding-top:12px;max-width:80ch;line-height:1.6}
+
+/* ledger of trade-offs */
+.trade{border-top:1px solid var(--rule2)}
+.trow{display:grid;grid-template-columns:70px 1.35fr 1fr 1fr;gap:28px;padding:30px 0;border-bottom:1px solid var(--rule)}
+.trow .no{font-size:48px;font-weight:300;line-height:.9;color:var(--mute)}
+.trow h3{font-size:25px;font-weight:450;line-height:1.2;letter-spacing:-.01em}
+.trow .c small{display:block;font-family:var(--sans);font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+.trow .gain small{color:var(--green)} .trow .tax small{color:var(--red)}
+.trow p{font-size:17px;line-height:1.5;color:var(--ink2)}
+.trow .tax p{font-style:italic}
+
+/* scenario dot plot */
+.plot{position:relative;margin-top:4vh;padding:0 0 10px}
+.axis{position:relative;height:1px;background:var(--ink);margin:0 0 0}
+.ticks{position:relative;height:36px}
+.ticks span{position:absolute;top:10px;transform:translateX(-50%);font-family:var(--sans);font-size:12px;color:var(--mute)}
+.lanes{position:relative;height:280px}
+.mk{position:absolute;bottom:0;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;text-align:center;transition:left 1.2s cubic-bezier(.2,.7,.2,1)}
+.mk .stem{width:1px;background:var(--ink);opacity:.4}
+.mk .dot{width:16px;height:16px;border-radius:50%;background:var(--ink);margin-top:-8px;position:relative;top:8px}
+.mk .v{font-size:32px;font-weight:400;letter-spacing:-.02em;line-height:1}
+.mk .n{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+.mk .s{font-family:var(--sans);font-size:12.5px;color:var(--mute);margin-top:4px;white-space:nowrap}
+.mk.today .dot{background:transparent;border:2px solid var(--ink)} .mk.today .v{color:var(--mute)}
+.mk.exp .dot{background:var(--red)} .mk.exp .n,.mk.exp .v{color:var(--red)}
+.band{position:absolute;bottom:-1px;height:3px;background:var(--red);opacity:.35}
+.plot-cap{display:flex;justify-content:space-between;font-family:var(--sans);font-size:12.5px;color:var(--mute);margin-top:4px}
+.sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:6vh;border-top:1px solid var(--rule2);padding-top:22px}
+.sgrid h4{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+.sgrid h4.exp{color:var(--red)}
+.sgrid p{font-size:16.5px;line-height:1.5;color:var(--ink2);margin-top:10px}
+.sgrid .n{font-size:40px;font-weight:350;margin-top:8px;letter-spacing:-.02em}
+.sgrid .n small{font-family:var(--sans);font-size:13px;color:var(--mute);letter-spacing:0;margin-left:6px}
+
+/* close */
+.closing{padding-block:16vh 10vh}
+.steps{margin-top:2vh;border-top:1px solid var(--rule2)}
+.step{display:grid;grid-template-columns:150px 1fr 1.3fr;gap:30px;padding:30px 0;border-bottom:1px solid var(--rule);align-items:baseline}
+.step .w{font-family:var(--sans);font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.step h3{font-size:clamp(28px,2.8vw,40px);font-weight:400;letter-spacing:-.02em;line-height:1.05}
+.step p{font-size:18px;line-height:1.5;color:var(--ink2)}
+.colophon{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:12vh;border-top:2px solid var(--ink);padding-top:12px;font-family:var(--sans);font-size:12.5px;color:var(--mute)}
+
+/* rail + keys */
+.mv-rail{position:fixed;right:20px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:11px;z-index:40}
+.mv-rail button{width:7px;height:7px;border-radius:50%;border:1px solid var(--ink);background:transparent;cursor:pointer;padding:0;transition:background .3s,transform .3s}
+.mv-rail button[aria-current]{background:var(--red);border-color:var(--red);transform:scale(1.35)}
+.mv-rail button:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+.keys{position:fixed;left:20px;bottom:14px;font-family:var(--sans);font-size:11.5px;color:var(--mute);z-index:40;background:var(--paper);padding:4px 8px 4px 0}
+
+@media (max-width:900px){
+  .story,.cover-body,.sec-head{display:block}
+  .margin{border-left:0;padding-left:0;border-top:1px solid var(--rule);margin-top:5vh;padding-top:22px}
+  .cover-body{padding-top:6vh}
+  .byline{margin-top:5vh}
+  .sec-head h2{margin-top:14px}
+  .sec{padding-block:11vh}
+  .wrow{grid-template-columns:1fr auto;gap:8px 14px}
+  .wbar{grid-column:1/-1;grid-row:2;height:22px}
+  .wname span{font-size:28px}
+  .dots3{grid-template-columns:1fr;gap:6vh}
+  .dg{max-width:220px}
+  .trow{grid-template-columns:44px 1fr;gap:12px 14px}
+  .trow .no{font-size:34px}
+  .trow .c{grid-column:2}
+  .lanes{height:250px}
+  .mk .v{font-size:21px}.mk .n{font-size:10px;letter-spacing:.06em}.mk .s{display:none}
+  .sgrid{grid-template-columns:1fr}
+  .step{grid-template-columns:1fr;gap:10px}
+  .mv-rail{right:7px}.keys{display:none}
+}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.wbar .kept,.wbar .lost{transform:none;transition:none}.mk{transition:none}}
+</style>
+</head>
+<body>
+
+<!-- 1 COVER / MASTHEAD -->
+<header class="mast col" data-beat="Cover" id="cover">
+  <div class="mast-top">
+    <span class="mast-title">The Funnel Review</span>
+    <span class="label">Prepared by MV Advisory</span>
+  </div>
+  <div class="mast-sub">
+    <span class="label">Halden Home Energy · Paid acquisition</span>
+    <span class="label tnum">7 July to 14 September 2026</span>
+  </div>
+  <div class="cover-body">
+    <h1 class="rv"><span class="tnum">412</span> people asked for a quote. <span class="tnum">16</span> signed. <i>The gap is not the ads.</i></h1>
+    <p class="stand rv d1">A ten-week review of <span class="tnum" data-bind="spend" data-fmt="usd"></span> in media: what it bought, where it leaked, and the three changes that make the next dollar work harder. Each one priced honestly.</p>
+    <div class="byline rv d2"><b>Sample client.</b> Halden Home Energy is illustrative. The figures show the method, not a real business.</div>
+  </div>
+</header>
+
+<!-- 2 VERDICT -->
+<section class="sec col" data-beat="The verdict" id="verdict">
+  <div class="sec-head rv"><span class="kicker">I · The verdict</span><h2>The marketing is working. What happens after it isn’t.</h2></div>
+  <div class="story">
+    <div class="main lede rv d1">
+      <p>Halden’s ads do their job. <span class="tnum" data-bind="stages.0.count" data-fmt="num"></span> people clicked through, and one in ten asked for a quote. For a cold audience and a considered purchase, that is a healthy page and a healthy offer.</p>
+      <p>The money disappears after the lead arrives. Most quote requests are never booked in for an assessment, and many that are booked never happen. By the time a proposal lands, the team is working with a fraction of what the ads delivered. Once they are in the room, they close well.</p>
+      <p>So the first fix is not creative, targeting or budget. It is the first hour after someone raises their hand.</p>
+    </div>
+    <aside class="margin rv d2">
+      <div class="pull tnum" data-bind="outcomes.0.share" data-fmt="pct"></div>
+      <p>of quote requests never became a booked assessment. <span class="tnum" data-bind="outcomes.0.dollars" data-fmt="usd"></span> of media bought a name and nothing more.</p>
+      <p class="note"><b>Why it matters.</b> Advertising already costs <span class="tnum" data-bind="acq_share_of_gp" data-fmt="pct"></span> of the gross profit on every job it wins. Spending more today would buy more of the same leak.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- 3 WATERFALL -->
+<section class="sec col" data-beat="Where it leaks" id="leak">
+  <div class="sec-head rv"><span class="kicker">II · Where it leaks</span><h2>From quote request to signature, stage by stage.</h2></div>
+  <div class="wf" id="wf"></div>
+  <div class="wkey rv"><span><i style="background:var(--ink)"></i>Still in the funnel</span><span><i style="background:repeating-linear-gradient(135deg,rgba(179,38,30,.85) 0 2px,transparent 2px 5px);border:1px solid rgba(179,38,30,.7)"></i>Lost at this stage, with its share of spend</span></div>
+</section>
+
+<!-- 4 EVIDENCE -->
+<section class="sec col" data-beat="The evidence" id="speed">
+  <div class="sec-head rv"><span class="kicker">III · The evidence</span><h2>Call within the hour and more than half book. Wait a day and barely a quarter do.</h2></div>
+  <div class="dots3" id="dots3"></div>
+  <p class="src rv">Source: quote requests matched to the first outbound call in the CRM, 7 July to 14 September. Same ads, same offer, same audience. Each grid is 100 people; filled dots booked an assessment.</p>
+</section>
+
+<!-- 5 TRADE-OFFS -->
+<section class="sec col" data-beat="The plan, with its costs" id="levers">
+  <div class="sec-head rv"><span class="kicker">IV · The plan, with its costs</span><h2>Three changes. Each one has a price, and we have paid it in the forecast.</h2></div>
+  <div class="story">
+    <div class="main"><div class="trade" id="trade"></div></div>
+    <aside class="margin rv d2">
+      <p class="note" style="margin-top:0"><b>How we forecast.</b> Most growth plans list what a change buys and leave out what it costs. Cheaper leads arrive colder. Faster callbacks need a person. We charge each cost to the stage where it lands, before any outcome is shown.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- 6 SCENARIOS -->
+<section class="sec col" data-beat="What it’s worth" id="scen">
+  <div class="sec-head rv"><span class="kicker">V · What it’s worth</span><h2>Cost per signed contract, today and in three honest futures.</h2></div>
+  <div class="plot rv d1" id="plot">
+    <div class="lanes" id="lanes"></div>
+    <div class="axis"></div>
+    <div class="ticks" id="ticks"></div>
+    <div class="plot-cap"><span>Cost per signed contract · cheaper to the right →</span><span>Same ten weeks · media held at <span class="tnum" data-bind="spend" data-fmt="usd"></span> · forward scenarios include the $3,000 callback role</span></div>
+  </div>
+  <div class="sgrid rv d2" id="sgrid"></div>
+</section>
+
+<!-- 7 CLOSE -->
+<section class="closing col" data-beat="Next 90 days" id="close">
+  <div class="sec-head rv"><span class="kicker">VI · The next 90 days</span><h2>Fix the first hour. Then spend more.</h2></div>
+  <div class="steps">
+    <div class="step rv"><span class="w">Weeks 1 to 3</span><h3>Answer faster.</h3><p>A callback role in place, so every quote request is called inside the hour. A reminder sequence on every booked assessment.</p></div>
+    <div class="step rv d1"><span class="w">Weeks 4 to 8</span><h3>Widen carefully.</h3><p>Broaden the audience in one controlled test. Judge it on cost per attended assessment, never on cost per lead.</p></div>
+    <div class="step rv d2"><span class="w">Weeks 9 to 12</span><h3>Scale what pays.</h3><p>Add spend only once advertising sits under 40% of job profit. Until then, more budget buys more leak.</p></div>
+  </div>
+  <div class="colophon"><span>The Funnel Review · Prepared by MV Advisory</span><span>Halden Home Energy is a sample client. All figures illustrative.</span></div>
+</section>
+
+<div class="keys">↑ ↓ or space to step · F for full screen</div>
+
+<script src="../../shared/data.js"></script>
+<script src="../../shared/present.js"></script>
+<script>
+(function(){
+  const D = window.MV_DATA, S = D.stages.slice(1), spend = D.spend, cpl = spend / S[0].count;
+
+  /* waterfall */
+  const wf = document.getElementById('wf');
+  S.forEach((s, i) => {
+    const next = S[i + 1];
+    const kept = (next ? next.count : s.count) / S[0].count * 100;
+    const lostN = next ? s.count - next.count : 0;
+    const lostW = lostN / S[0].count * 100;
+    const r = document.createElement('div'); r.className = 'wrow rv';
+    r.innerHTML = `<div class="wname">${s.name}<span class="tnum">${MV.num(s.count)}</span></div>
+      <div class="wbar"><i class="kept" style="width:${kept}%"></i>${next ? `<i class="lost" style="left:${(next.count / S[0].count * 100)}%;width:${lostW}%"></i>` : ''}</div>
+      <div class="wloss">${next ? `<b class="tnum">−${MV.num(lostN)}</b>${MV.usd(lostN * cpl)} of spend` : `<b class="tnum" style="color:var(--green)">${MV.usd(s.cost_each)}</b><span style="color:var(--mute)">per contract</span>`}</div>`;
+    wf.appendChild(r);
+  });
+
+  /* dot grids */
+  const d3 = document.getElementById('dots3');
+  const cols = ['var(--green)', 'var(--ink)', 'var(--red)'];
+  D.speed.forEach((s, i) => {
+    const w = document.createElement('div'); w.className = 'dcap rv d' + (i + 1);
+    let dots = ''; for (let k = 0; k < 100; k++) dots += `<i data-k="${k}"></i>`;
+    w.innerHTML = `<div class="big tnum" style="color:${cols[i]}">${s.rate}%</div><div class="lbl">${s.label}</div><div class="dg" data-rate="${s.rate}" data-col="${cols[i]}">${dots}</div><div class="sub tnum">${MV.num(s.booked)} of ${MV.num(s.n)} booked</div>`;
+    d3.appendChild(w);
+  });
+  const fill = (g) => { const r = +g.dataset.rate; g.querySelectorAll('i').forEach((d, k) => { if (k < r) { d.classList.add('on'); d.style.background = g.dataset.col; d.style.transitionDelay = MV.reduce() ? '0s' : (k * 12) + 'ms'; } }); };
+  if ('IntersectionObserver' in window && !MV.reduce()) {
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { fill(e.target); io.unobserve(e.target); } }), { threshold: .3 });
+    document.querySelectorAll('.dg').forEach(g => io.observe(g));
+  } else document.querySelectorAll('.dg').forEach(fill);
+
+  /* trade-offs */
+  const tr = document.getElementById('trade');
+  D.levers.forEach((l, i) => {
+    const r = document.createElement('div'); r.className = 'trow rv d' + (i + 1);
+    r.innerHTML = `<div class="no tnum">${l.n}</div><h3>${l.name}</h3><div class="c gain"><small>What it buys</small><p>${l.buys}</p></div><div class="c tax"><small>What it costs</small><p>${l.tax}</p></div>`;
+    tr.appendChild(r);
+  });
+
+  /* dot plot of cost per contract */
+  const lo = 1000, hi = 2600, pos = v => (hi - v) / (hi - lo) * 100;
+  const ticks = document.getElementById('ticks');
+  for (let v = 1000; v <= 2600; v += 400) { const t = document.createElement('span'); t.className = 'tnum'; t.style.left = pos(v) + '%'; if (v === 2600) t.style.transform = 'none'; if (v === 1000) t.style.transform = 'translateX(-100%)'; t.textContent = MV.usd(v); ticks.appendChild(t); }
+  const lanes = document.getElementById('lanes');
+  const keys = [['today', 'Today', 70], ['conservative', 'Conservative', 150], ['expected', 'Expected', 230], ['stretch', 'Stretch', 150]];
+  const band = document.createElement('div'); band.className = 'band';
+  band.style.left = pos(D.scenarios.conservative.cost_per_contract) + '%';
+  band.style.width = (pos(D.scenarios.stretch.cost_per_contract) - pos(D.scenarios.conservative.cost_per_contract)) + '%';
+  lanes.appendChild(band);
+  keys.forEach(([k, name, h]) => {
+    const sc = D.scenarios[k];
+    const m = document.createElement('div'); m.className = 'mk ' + (k === 'today' ? 'today' : k === 'expected' ? 'exp' : '');
+    m.style.left = pos(sc.cost_per_contract) + '%';
+    m.innerHTML = `<span class="n">${name}</span><span class="v tnum">${MV.usd(sc.cost_per_contract)}</span><span class="s tnum">${sc.signed_r} contracts</span><span class="stem" style="height:${h - 70 < 12 ? 12 : h - 70}px"></span><span class="dot"></span>`;
+    lanes.appendChild(m);
+  });
+
+  const sg = document.getElementById('sgrid');
+  const truth = {
+    conservative: 'Leads up 20%. Colder leads outweigh faster callbacks, so the booking rate falls to 36%. Show rate 60%.',
+    expected: 'Leads up 30%. Callbacks lift bookings, colder leads take four points back: 40%. Show rate 64%.',
+    stretch: 'Leads up 40%. Booking 45%, show rate 68%, close rate 27%. Everything has to go right.',
+  };
+  ['conservative', 'expected', 'stretch'].forEach(k => {
+    const sc = D.scenarios[k];
+    const c = document.createElement('div');
+    c.innerHTML = `<h4 class="${k === 'expected' ? 'exp' : ''}">${k[0].toUpperCase() + k.slice(1)}</h4><div class="n tnum">${sc.signed_r}<small>contracts, ${sc.gp_share}% of job profit on ads</small></div><p>${truth[k]}</p>`;
+    sg.appendChild(c);
+  });
+})();
+</script>
+</body>
+</html>

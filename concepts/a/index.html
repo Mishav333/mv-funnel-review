@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Funnel Review · Halden Home Energy · Concept A: The Ledger</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0B0D10; --panel:#12161B; --line:rgba(236,232,224,.10); --line2:rgba(236,232,224,.2);
+  --paper:#ECE8E0; --mute:rgba(236,232,224,.66); --faint:rgba(236,232,224,.44);
+  --gold:#D9A441; --leak:#E4572E; --good:#7FB38E;
+  --sans:'Geist',system-ui,sans-serif; --mono:'Geist Mono',ui-monospace,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{background:var(--ink);color:var(--paper);font-family:var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+html.mv-wait body{opacity:0} html.mv-ready body{opacity:1;transition:opacity .5s ease}
+body{overflow-x:hidden}
+.w{max-width:1240px;margin:0 auto;padding:0 6vw}
+.mono{font-family:var(--mono);font-feature-settings:"tnum" 1,"zero" 1;letter-spacing:-.01em}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.eyebrow b{color:var(--gold);font-weight:500}
+h1,h2,h3{font-weight:500;letter-spacing:-.035em;text-wrap:balance}
+p{text-wrap:pretty}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+section{position:relative}
+
+/* grid texture: ledger paper */
+.grid-bg{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(var(--line) 1px,transparent 1px);background-size:100% 64px;mask-image:linear-gradient(180deg,transparent,black 20%,black 80%,transparent)}
+
+/* 1 cover */
+.cover{min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;padding-block:32px 44px}
+.cover-top{display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap}
+.cover h1{font-size:clamp(46px,8.4vw,132px);line-height:.94;max-width:11.5ch}
+.cover h1 span{color:var(--faint)}
+.ticker{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line2);margin-top:6vh}
+.ticker div{padding:18px 0 0}
+.ticker div+div{padding-left:24px;border-left:1px solid var(--line)}
+.ticker .v{font-size:clamp(26px,3vw,40px);margin-top:10px}
+.ticker .v.gold{color:var(--gold)}
+.cover-foot{display:flex;justify-content:space-between;margin-top:40px;gap:20px;flex-wrap:wrap}
+
+/* 2 verdict */
+.verdict{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:12vh 6vw}
+.verdict .big{font-size:clamp(38px,5.6vw,84px);line-height:1.02;max-width:17ch}
+.verdict .big em{font-style:normal;color:var(--gold)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);margin-top:7vh;border:1px solid var(--line)}
+.split>div{background:var(--ink);padding:40px 36px}
+.split .n{font-size:clamp(48px,6vw,92px);line-height:1;margin:18px 0 14px}
+.split p{color:var(--mute);font-size:17px;line-height:1.55;max-width:30ch}
+.bar{height:6px;background:var(--line);margin-top:26px;position:relative;overflow:hidden}
+.bar i{position:absolute;inset:0 auto 0 0;background:var(--gold);width:0;transition:width 1.4s cubic-bezier(.2,.7,.2,1) .3s}
+.rv.in .bar i{width:var(--w)}
+
+/* 3 the leak: sticky scrollytelling */
+.leak{height:520vh}
+.leak .stick{position:sticky;top:0;height:100svh;display:grid;grid-template-columns:minmax(260px,.8fr) 1.6fr;gap:4vw;align-items:center;padding:0 6vw;max-width:1400px;margin:0 auto}
+.leak-copy .eyebrow{margin-bottom:22px}
+.leak-copy h2{font-size:clamp(30px,3.4vw,50px);line-height:1.06;min-height:3.2em}
+.leak-copy p{color:var(--mute);font-size:17px;line-height:1.6;margin-top:18px;max-width:34ch;min-height:5em}
+.leak-copy .spent{margin-top:30px;border-top:1px solid var(--line2);padding-top:18px}
+.leak-copy .spent .v{font-size:40px;color:var(--leak);margin-top:6px}
+.flow{position:relative;width:100%}
+.flow svg{width:100%;height:auto;display:block;overflow:visible}
+.flow .stage-label{font-family:var(--mono);font-size:12px;fill:var(--mute);letter-spacing:.04em}
+.flow .stage-num{font-family:var(--mono);font-size:22px;fill:var(--paper)}
+.flow .stage-cost{font-family:var(--mono);font-size:12px;fill:var(--gold)}
+.flow .leak-num{font-family:var(--mono);font-size:12px;fill:var(--leak)}
+.stepper{position:absolute;left:0;right:0;pointer-events:none}
+
+/* 4 speed evidence */
+.speed{padding-block:18vh}
+.speed h2{font-size:clamp(34px,4.4vw,66px);line-height:1.04;max-width:18ch}
+.rows{margin-top:9vh;border-top:1px solid var(--line2)}
+.row{display:grid;grid-template-columns:1.2fr 3fr .6fr;align-items:center;gap:28px;padding:26px 0;border-bottom:1px solid var(--line)}
+.row .lbl{font-size:18px}
+.row .lbl small{display:block;color:var(--faint);font-family:var(--mono);font-size:12px;margin-top:6px}
+.row .track{height:44px;background:rgba(236,232,224,.04);position:relative}
+.row .track i{position:absolute;inset:0 auto 0 0;width:0;transition:width 1.3s cubic-bezier(.2,.7,.2,1)}
+.rv.in .track i{width:var(--w)}
+.row .rate{font-size:34px;text-align:right}
+.note{margin-top:34px;color:var(--faint);font-family:var(--mono);font-size:12px;line-height:1.7;max-width:80ch}
+
+/* 5 lever tax */
+.levers{padding-block:16vh}
+.levers h2{font-size:clamp(34px,4.4vw,66px);line-height:1.04;max-width:16ch}
+.levers .intro{color:var(--mute);font-size:19px;line-height:1.6;max-width:44ch;margin-top:24px}
+.ltable{margin-top:9vh;border-top:1px solid var(--line2)}
+.lrow{display:grid;grid-template-columns:60px 1.3fr 1.2fr 1.2fr;gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}
+.lrow .i{font-family:var(--mono);color:var(--gold);font-size:14px;padding-top:4px}
+.lrow h3{font-size:22px;line-height:1.25}
+.lrow .col small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
+.lrow .buys small{color:var(--good)} .lrow .tax small{color:var(--leak)}
+.lrow p{color:var(--mute);font-size:16px;line-height:1.55}
+
+/* 6 scenarios */
+.scen{padding-block:11vh 14vh}
+.scen h2{font-size:clamp(34px,4.4vw,66px);line-height:1.04;max-width:17ch}
+.period{color:var(--mute);font-size:17px;line-height:1.6;margin-top:22px;max-width:60ch}
+.stable{margin-top:7vh;border-top:1px solid var(--line2)}
+.sr{display:grid;grid-template-columns:1.25fr repeat(4,1fr);gap:0 20px;border-bottom:1px solid var(--line);align-items:baseline}
+.sr>span{padding:22px 16px 22px 0}
+.sr>span.hi{background:rgba(217,164,65,.08);padding-left:16px;box-shadow:inset 2px 0 0 var(--gold)}
+.sh>span{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);padding-top:16px;padding-bottom:16px}
+.sh>span.hi{color:var(--gold)}
+.sr .m{color:var(--mute);font-size:16px;line-height:1.35}
+.sr .v{font-size:clamp(26px,2.6vw,40px);line-height:1}
+.sr .v.today{color:var(--mute)}
+.sr .v.hi{color:var(--gold)}
+.tr>span{font-size:14px;line-height:1.55;color:var(--mute);align-self:stretch}
+/* 7 close */
+.close{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding-block:14vh;border-top:1px solid var(--line)}
+.close h2{font-size:clamp(40px,6vw,92px);line-height:1;max-width:14ch}
+.plan{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);margin-top:9vh;border:1px solid var(--line)}
+.plan>div{background:var(--ink);padding:30px 28px}
+.plan .when{font-family:var(--mono);font-size:12px;color:var(--gold);letter-spacing:.1em}
+.plan h3{font-size:22px;margin:14px 0 10px}
+.plan p{color:var(--mute);font-size:15.5px;line-height:1.55}
+.sign{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:12vh;color:var(--faint);font-family:var(--mono);font-size:12px;letter-spacing:.08em}
+
+/* rail */
+.mv-rail{position:fixed;right:22px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:12px;z-index:40}
+.mv-rail button{width:7px;height:7px;border-radius:50%;border:0;background:var(--faint);cursor:pointer;padding:0;transition:transform .3s,background .3s}
+.mv-rail button[aria-current]{background:var(--gold);transform:scale(1.5)}
+.mv-rail button:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.keys{position:fixed;left:22px;bottom:18px;font-family:var(--mono);font-size:11px;color:var(--faint);letter-spacing:.06em;z-index:40}
+
+@media (max-width:860px){
+  .ticker{grid-template-columns:1fr 1fr}
+  .ticker div:nth-child(3){border-left:0;padding-left:0}
+  .ticker div:nth-child(n+3){margin-top:18px}
+  .split,.plan{grid-template-columns:1fr}
+  .leak{height:560vh}
+  .leak .stick{grid-template-columns:1fr;grid-template-rows:auto 1fr;align-items:start;padding-top:9vh;gap:2vh}
+  .leak-copy h2{min-height:0;font-size:26px}
+  .leak-copy p{min-height:0;font-size:15px;margin-top:10px}
+  .leak-copy .spent{margin-top:14px;padding-top:12px}.leak-copy .spent .v{font-size:28px}
+  .row{grid-template-columns:1fr auto;gap:10px 16px}
+  .row .track{grid-column:1/-1;grid-row:2;height:28px}
+  .row .rate{grid-row:1;grid-column:2;font-size:26px}
+  .lrow{grid-template-columns:1fr;gap:14px}
+  
+  .sr{grid-template-columns:repeat(4,1fr);gap:0 6px}
+  .sr .m{grid-column:1/-1;padding:18px 0 4px;font-size:14px}
+  .sr>span{padding:10px 4px 16px 0}
+  .sr>span.hi{padding-left:6px}
+  .sh>span:first-child{display:none}
+  .sh>span{font-size:10px;letter-spacing:.06em;padding:12px 2px 10px 0}
+  .sr .v{font-size:19px}
+  .tr>span{font-size:12px;line-height:1.45}
+  .mv-rail{right:8px}.keys{display:none}
+}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.bar i,.track i{transition:none}}
+</style>
+</head>
+<body>
+
+<!-- 1 COVER -->
+<section class="cover w" data-beat="Cover" id="cover">
+  <div class="grid-bg"></div>
+  <div class="cover-top">
+    <span class="eyebrow">Funnel Review · <b>Halden Home Energy</b></span>
+    <span class="eyebrow">7 Jul to 14 Sep 2026 · AUD</span>
+  </div>
+  <div>
+    <h1 class="rv">Where the money goes, <span>and where it doesn’t come back.</span></h1>
+    <div class="ticker rv d2">
+      <div><div class="eyebrow">Media spend</div><div class="v mono" data-bind="spend" data-fmt="usd"></div></div>
+      <div><div class="eyebrow">Quote requests</div><div class="v mono" data-bind="stages.1.count" data-fmt="num"></div></div>
+      <div><div class="eyebrow">Signed contracts</div><div class="v mono" data-bind="stages.5.count" data-fmt="num"></div></div>
+      <div><div class="eyebrow">Cost per contract</div><div class="v mono gold" data-bind="cost_per_contract" data-fmt="usd"></div></div>
+    </div>
+  </div>
+  <div class="cover-foot">
+    <span class="eyebrow">Prepared by MV Advisory</span>
+    <span class="eyebrow">Sample client · illustrative data</span>
+  </div>
+</section>
+
+<!-- 2 VERDICT -->
+<section class="verdict w" data-beat="The verdict" id="verdict">
+  <p class="eyebrow rv">01 · The verdict</p>
+  <p class="big rv d1" style="margin-top:26px">The ads work. The leads are real. <em>Most of the money is lost after the lead arrives,</em> before anyone picks up the phone.</p>
+  <div class="split rv d2">
+    <div>
+      <div class="eyebrow">Of every quote request</div>
+      <div class="n mono" data-bind="outcomes.0.share" data-fmt="pct"></div>
+      <p>never booked a home assessment. That is <span class="mono" data-bind="outcomes.0.dollars" data-fmt="usd"></span> of media spend that bought a name and nothing else.</p>
+      <div class="bar" style="--w:61.9%"><i></i></div>
+    </div>
+    <div>
+      <div class="eyebrow">Of every signed job’s gross profit</div>
+      <div class="n mono" data-bind="acq_share_of_gp" data-fmt="pct"></div>
+      <p>goes straight back into the ads that won it. Gross profit per job is <span class="mono" data-bind="gross_profit_per_job" data-fmt="usd"></span>. Profitable, but only just, and no room to scale.</p>
+      <div class="bar" style="--w:54%"><i></i></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 THE LEAK (sticky) -->
+<section class="leak" data-beat="Where it leaks" id="leak">
+  <div class="stick">
+    <div class="leak-copy">
+      <p class="eyebrow" id="leak-step">02 · Where it leaks</p>
+      <h2 id="leak-h">Every dollar starts as a click.</h2>
+      <p id="leak-p">Follow the spend from the ad to the signature. The width of the stream is the money still working for you.</p>
+      <div class="spent"><div class="eyebrow" id="leak-lbl">Spend still in the funnel</div><div class="v mono" id="leak-v"></div></div>
+    </div>
+    <div class="flow" aria-hidden="true"><svg id="flow" viewBox="0 0 760 640"></svg></div>
+  </div>
+  <!-- invisible step anchors for presenter keys -->
+  <div class="stepper" data-step style="top:100vh"></div>
+  <div class="stepper" data-step style="top:190vh"></div>
+  <div class="stepper" data-step style="top:280vh"></div>
+  <div class="stepper" data-step style="top:370vh"></div>
+</section>
+
+<!-- 4 SPEED -->
+<section class="speed w" data-beat="The evidence" id="speed">
+  <p class="eyebrow rv">03 · The evidence</p>
+  <h2 class="rv d1" style="margin-top:22px">The single biggest predictor of a booking is how fast someone calls back.</h2>
+  <div class="rows" id="speed-rows"></div>
+  <p class="note rv">Quote requests matched to first outbound call in the CRM, 7 Jul to 14 Sep. Same ads, same offer, same audience. The only thing that changed was the wait.</p>
+</section>
+
+<!-- 5 LEVER TAX -->
+<section class="levers w" data-beat="The plan, with its costs" id="levers">
+  <p class="eyebrow rv">04 · Three fixes, and what each one costs</p>
+  <h2 class="rv d1" style="margin-top:22px">Every fix has a price. We show it.</h2>
+  <p class="intro rv d2">Most growth plans list what a change buys and leave out what it costs. Cheaper leads are colder leads. Faster callbacks need a person. The forecast only counts if it pays for both.</p>
+  <div class="ltable" id="ltable"></div>
+</section>
+
+<!-- 6 SCENARIOS -->
+<section class="scen w" data-beat="What it’s worth" id="scen">
+  <p class="eyebrow rv">05 · What it’s worth</p>
+  <h2 class="rv d1" style="margin-top:22px">Three honest outcomes, not one hopeful one.</h2>
+  <p class="period rv d2">Same 10-week window as today. Media held at <span class="mono" data-bind="spend" data-fmt="usd"></span>. Every forward scenario adds the $3,000 callback role.</p>
+  <div class="stable rv d2" id="stable"></div>
+</section>
+
+<!-- 7 CLOSE -->
+<section class="close w" data-beat="Next 90 days" id="close">
+  <p class="eyebrow rv">06 · The next 90 days</p>
+  <h2 class="rv d1" style="margin-top:22px">Fix the first hour. Then spend more.</h2>
+  <div class="plan rv d2">
+    <div><div class="when">WEEKS 1 TO 3</div><h3>Answer faster</h3><p>A callback role in place, so every quote request is called inside the hour. Reminder sequence on every booked assessment.</p></div>
+    <div><div class="when">WEEKS 4 TO 8</div><h3>Widen carefully</h3><p>Broaden the audience in one controlled test. Judge it on cost per attended assessment, never on cost per lead.</p></div>
+    <div><div class="when">WEEKS 9 TO 12</div><h3>Scale what pays</h3><p>Add spend only once acquisition sits under 40% of job profit. Until then, more budget buys more leaks.</p></div>
+  </div>
+  <div class="sign"><span>Prepared by MV Advisory</span><span>Halden Home Energy is a sample client. All figures illustrative.</span></div>
+</section>
+
+<div class="keys">↑ ↓ or space to step · F full screen</div>
+
+<script src="../../shared/data.js"></script>
+<script src="../../shared/present.js"></script>
+<script>
+(function(){
+  const D = window.MV_DATA;
+  const S = D.stages.slice(1);             // quote requests .. signed
+  const spend = D.spend;
+
+  /* ---------- 3. leak flow (SVG) ---------- */
+  const svg = document.getElementById('flow');
+  const NS = 'http://www.w3.org/2000/svg';
+  const per = ['per request', 'per booking', 'per visit', 'per proposal', 'per contract'];
+  const el = (t, a) => { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); return e; };
+  const cpl = spend / S[0].count;
+  let bars = [], leaks = [], labels = [], compact = null;
+  function build() {
+    const c = innerWidth < 860;
+    if (c === compact) return; compact = c;
+    svg.innerHTML = ''; bars = []; leaks = []; labels = [];
+    if (!c) {
+      const top = 26, rowH = 118, maxW = 400, cx = 330;
+      svg.setAttribute('viewBox', '0 0 760 ' + (top + rowH * (S.length - 1) + 40));
+      const widths = S.map(s => Math.max(4, maxW * s.count / S[0].count));
+      for (let i = 0; i < S.length - 1; i++) {
+        const y1 = top + i * rowH + 16, y2 = top + (i + 1) * rowH, w1 = widths[i], w2 = widths[i + 1];
+        svg.appendChild(el('path', { d: `M${cx - w1/2},${y1} L${cx + w1/2},${y1} L${cx + w2/2},${y2} L${cx - w2/2},${y2} Z`, fill: 'rgba(217,164,65,.16)' }));
+        const lost = S[i].count - S[i + 1].count;
+        const sw = Math.min(14, Math.max(2, (w1 - w2) * 0.06));
+        const x1 = cx + w1/2, xe = Math.max(x1 + 30, cx + maxW/2 + 24);
+        const pth = el('path', { d: `M${cx + w2/2 + sw},${y1 + 2} C ${x1 + 20},${y1 + 4} ${xe - 6},${y1 + 26} ${xe},${y2 - 30}`, stroke: '#E4572E', 'stroke-width': sw, fill: 'none', 'stroke-linecap': 'round', opacity: 0 });
+        svg.appendChild(pth); leaks.push(pth);
+        const t = el('text', { x: xe + 14, y: y2 - 34, class: 'leak-num', opacity: 0 });
+        t.innerHTML = `<tspan x="${xe + 14}" style="font-size:20px">−${MV.num(lost)}</tspan><tspan x="${xe + 14}" dy="20">${MV.usd(lost * cpl)} of spend</tspan>`;
+        svg.appendChild(t); leaks.push(t);
+      }
+      S.forEach((s, i) => {
+        const y = top + i * rowH;
+        const r = el('rect', { x: cx - widths[i]/2, y, width: widths[i], height: 16, fill: i === S.length - 1 ? '#D9A441' : '#ECE8E0', opacity: .92 });
+        svg.appendChild(r); bars.push(r);
+        const lbl = el('text', { x: 0, y: y + 2, class: 'stage-label' }); lbl.textContent = s.name.toUpperCase();
+        const num = el('text', { x: 0, y: y + 32, class: 'stage-num' }); num.textContent = MV.num(s.count);
+        const cost = el('text', { x: 0, y: y + 52, class: 'stage-cost' }); cost.textContent = MV.usd(s.cost_each) + ' ' + per[i];
+        [lbl, num, cost].forEach(n => { n.setAttribute('opacity', 0); svg.appendChild(n); labels.push(n); });
+      });
+    } else {
+      const top = 18, rowH = 88, bx = 170, maxW = 226;
+      svg.setAttribute('viewBox', '0 0 400 ' + (top + rowH * (S.length - 1) + 44));
+      S.forEach((s, i) => {
+        const y = top + i * rowH, w = Math.max(4, maxW * s.count / S[0].count);
+        const prevW = i ? Math.max(4, maxW * S[i - 1].count / S[0].count) : w;
+        if (i) { const ghost = el('rect', { x: bx, y: y + 10, width: prevW, height: 18, fill: 'rgba(228,87,46,.30)', opacity: 0 }); svg.appendChild(ghost); leaks.push(ghost);
+                 const lt = el('text', { x: bx, y: y + 50, class: 'leak-num', opacity: 0, style: 'font-size:14px' }); lt.textContent = `−${MV.num(S[i - 1].count - s.count)} · ${MV.usd((S[i - 1].count - s.count) * cpl)}`; svg.appendChild(lt); leaks.push(lt); }
+        const r = el('rect', { x: bx, y: y + 10, width: w, height: 18, fill: i === S.length - 1 ? '#D9A441' : '#ECE8E0', opacity: .92 });
+        svg.appendChild(r); bars.push(r);
+        const lbl = el('text', { x: 0, y: y, class: 'stage-label', style: 'font-size:13px' }); lbl.textContent = s.name.toUpperCase();
+        const num = el('text', { x: 0, y: y + 30, class: 'stage-num', style: 'font-size:26px' }); num.textContent = MV.num(s.count);
+        const cost = el('text', { x: 0, y: y + 50, class: 'stage-cost', style: 'font-size:14px' }); cost.textContent = MV.usd(s.cost_each) + ' ' + per[i];
+        [lbl, num, cost].forEach(n => { n.setAttribute('opacity', 0); svg.appendChild(n); labels.push(n); });
+      });
+      // pair leaks per stage transition for reveal logic
+      const pairs = []; for (let k = 0; k < leaks.length; k += 2) pairs.push(leaks[k], leaks[k + 1]); leaks = pairs;
+    }
+    cur = -1; paint();
+  }
+
+  const beats = [
+    { h: 'Every dollar starts as a click.', p: `${MV.usd(spend)} bought ${MV.num(D.stages[0].count)} visits and ${MV.num(S[0].count)} quote requests. That part works. A 10% conversion on a cold landing page is healthy.`, lbl: 'Spend still in the funnel', v: 1 },
+    { h: 'Then 62% go quiet.', p: `${MV.num(D.outcomes[0].count)} people asked for a quote and never booked an assessment. Not a creative problem. Nobody reached them in time.`, lbl: 'Spend still in the funnel', v: S[1].count / S[0].count },
+    { h: 'Then 44% don’t open the door.', p: `${MV.num(D.outcomes[1].count)} booked assessments ended in an empty driveway. No reminder, no confirmation, no second call.`, lbl: 'Spend still in the funnel', v: S[2].count / S[0].count },
+    { h: 'Once they’re in the room, the team closes.', p: `Proposals convert at ${MV.pct(S[4].conv)}. Sales is not the constraint. Getting people into the room is.`, lbl: 'Spend on the 16 who signed', v: S[4].count / S[0].count },
+  ];
+  const H = document.getElementById('leak-h'), P = document.getElementById('leak-p'), V = document.getElementById('leak-v'), L = document.getElementById('leak-lbl');
+  const sec = document.getElementById('leak');
+  let cur = -1;
+  function paint() {
+    const pr = MV.progress(sec);
+    const reduce = MV.reduce();
+    const b = reduce ? beats.length - 1 : Math.min(beats.length - 1, Math.floor(pr * beats.length));
+    const shown = reduce ? S.length : [1, 2, 3, 5][b];
+    labels.forEach((n, i) => n.setAttribute('opacity', Math.floor(i / 3) < shown ? 1 : 0));
+    bars.forEach((r, i) => r.setAttribute('opacity', i < shown ? .92 : .07));
+    leaks.forEach((n, i) => n.setAttribute('opacity', Math.floor(i / 2) + 1 < shown ? 1 : 0));
+    if (b !== cur) {
+      cur = b; const bt = beats[b];
+      H.textContent = bt.h; P.textContent = bt.p; L.textContent = bt.lbl;
+      V.textContent = MV.usd(spend * bt.v);
+    }
+  }
+  addEventListener('scroll', paint, { passive: true }); addEventListener('resize', build); build();
+
+  /* ---------- 4. speed rows ---------- */
+  const rows = document.getElementById('speed-rows');
+  const maxRate = Math.max(...D.speed.map(s => s.rate));
+  D.speed.forEach((s, i) => {
+    const r = document.createElement('div'); r.className = 'row rv d' + (i + 1);
+    const col = i === 0 ? 'var(--good)' : i === 1 ? 'var(--gold)' : 'var(--leak)';
+    r.innerHTML = `<div class="lbl">${s.label}<small>${MV.num(s.booked)} of ${MV.num(s.n)} booked</small></div>
+      <div class="track"><i style="--w:${(s.rate / maxRate * 100).toFixed(1)}%;background:${col}"></i></div>
+      <div class="rate mono">${s.rate}%</div>`;
+    rows.appendChild(r);
+  });
+
+  /* ---------- 5. lever table ---------- */
+  const lt = document.getElementById('ltable');
+  D.levers.forEach((l, i) => {
+    const r = document.createElement('div'); r.className = 'lrow rv d' + (i + 1);
+    r.innerHTML = `<div class="i">0${l.n}</div><h3>${l.name}</h3>
+      <div class="col buys"><small>What it buys</small><p>${l.buys}</p></div>
+      <div class="col tax"><small>What it costs</small><p>${l.tax}</p></div>`;
+    lt.appendChild(r);
+  });
+
+  /* ---------- 6. scenarios: all four columns visible ---------- */
+  const cols = ['today', 'conservative', 'expected', 'stretch'];
+  const heads = ['Today', 'Conservative', 'Expected', 'Stretch'];
+  const metrics = [['Signed contracts', 'signed_r', 'num'], ['Cost per contract', 'cost_per_contract', 'usd'], ['Ad cost as a share of job profit', 'gp_share', 'pct'], ['Total cost, media plus callback role', 'total_cost', 'usd']];
+  const truth = {
+    today: 'Actuals, 7 Jul to 14 Sep.',
+    conservative: 'Leads up 20%. Colder leads outweigh faster callbacks: booking rate falls to 36%. Show rate 60%.',
+    expected: 'Leads up 30%. Callbacks lift booking, colder leads take 4 points back: 40%. Show rate 64%.',
+    stretch: 'Leads up 40%. Booking 45%, show rate 68%, close rate 27%. Everything has to go right.',
+  };
+  const st = document.getElementById('stable');
+  let html = '<div class="sr sh"><span></span>' + heads.map((h, i) => `<span class="${cols[i] === 'expected' ? 'hi' : ''}">${h}</span>`).join('') + '</div>';
+  metrics.forEach(([name, key, f]) => {
+    html += `<div class="sr"><span class="m">${name}</span>` + cols.map(c => {
+      const v = D.scenarios[c][key];
+      return `<span class="mono v ${c === 'expected' ? 'hi' : ''} ${c === 'today' ? 'today' : ''}">${f === 'usd' ? MV.usd(v) : f === 'pct' ? v + '%' : MV.num(v)}</span>`;
+    }).join('') + '</div>';
+  });
+  html += '<div class="sr tr"><span class="m">What has to be true</span>' + cols.map(c => `<span class="${c === 'expected' ? 'hi' : ''}">${truth[c]}</span>`).join('') + '</div>';
+  st.innerHTML = html;
+})();
+</script>
+</body>
+</html>

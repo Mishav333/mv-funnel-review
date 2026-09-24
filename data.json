@@ -1,0 +1,171 @@
+{
+ "client": "Halden Home Energy",
+ "period": "7 July to 14 September 2026",
+ "spend": 38400,
+ "stages": [
+  {
+   "name": "Landing page visits",
+   "count": 4120,
+   "conv": null,
+   "cost_each": 9.32
+  },
+  {
+   "name": "Quote requests",
+   "count": 412,
+   "conv": 10.0,
+   "cost_each": 93.2
+  },
+  {
+   "name": "Home assessments booked",
+   "count": 157,
+   "conv": 38.1,
+   "cost_each": 244.59
+  },
+  {
+   "name": "Assessments attended",
+   "count": 88,
+   "conv": 56.1,
+   "cost_each": 436.36
+  },
+  {
+   "name": "Proposals presented",
+   "count": 61,
+   "conv": 69.3,
+   "cost_each": 629.51
+  },
+  {
+   "name": "Signed contracts",
+   "count": 16,
+   "conv": 26.2,
+   "cost_each": 2400.0
+  }
+ ],
+ "outcomes": [
+  {
+   "label": "Asked for a quote, never booked",
+   "count": 255,
+   "dollars": 23767,
+   "share": 61.9
+  },
+  {
+   "label": "Booked, never showed",
+   "count": 69,
+   "dollars": 6431,
+   "share": 16.7
+  },
+  {
+   "label": "Attended, no proposal",
+   "count": 27,
+   "dollars": 2517,
+   "share": 6.6
+  },
+  {
+   "label": "Proposal presented, lost",
+   "count": 45,
+   "dollars": 4194,
+   "share": 10.9
+  },
+  {
+   "label": "Signed",
+   "count": 16,
+   "dollars": 1491,
+   "share": 3.9
+  }
+ ],
+ "job_value": 14800,
+ "gross_margin": 0.3,
+ "gross_profit_per_job": 4440.0,
+ "contracted": 236800,
+ "banked": 23680,
+ "cost_per_contract": 2400.0,
+ "acq_share_of_gp": 54,
+ "scenarios": {
+  "today": {
+   "leads": 412,
+   "booked": 157,
+   "attended": 88,
+   "proposals": 61,
+   "signed": 16.0,
+   "cost_per_contract": 2400,
+   "total_cost": 38400,
+   "signed_r": 16,
+   "gp_share": 54
+  },
+  "conservative": {
+   "leads": 494,
+   "booked": 178,
+   "attended": 107,
+   "proposals": 74,
+   "signed": 19.4,
+   "cost_per_contract": 2179,
+   "total_cost": 41400,
+   "signed_r": 19,
+   "gp_share": 49
+  },
+  "expected": {
+   "leads": 536,
+   "booked": 214,
+   "attended": 137,
+   "proposals": 95,
+   "signed": 24.9,
+   "cost_per_contract": 1656,
+   "total_cost": 41400,
+   "signed_r": 25,
+   "gp_share": 37
+  },
+  "stretch": {
+   "leads": 577,
+   "booked": 260,
+   "attended": 177,
+   "proposals": 127,
+   "signed": 34.3,
+   "cost_per_contract": 1218,
+   "total_cost": 41400,
+   "signed_r": 34,
+   "gp_share": 27
+  }
+ },
+ "speed": [
+  {
+   "label": "Called within the hour",
+   "n": 74,
+   "booked": 44,
+   "rate": 59
+  },
+  {
+   "label": "Called the same day",
+   "n": 121,
+   "booked": 54,
+   "rate": 45
+  },
+  {
+   "label": "Called the next day or later",
+   "n": 217,
+   "booked": 59,
+   "rate": 27
+  }
+ ],
+ "levers": [
+  {
+   "n": 1,
+   "name": "Call every quote request within the hour",
+   "buys": "More quote requests turn into booked assessments.",
+   "tax": "A dedicated callback role. $3,000 across the period, added to cost in every scenario.",
+   "paid_at": "Operating cost"
+  },
+  {
+   "n": 2,
+   "name": "Broaden the audience to bring lead cost down",
+   "buys": "20 to 40% more quote requests for the same media spend.",
+   "tax": "Colder leads book less often. We take 2 to 5 points off the booking rate to pay for it.",
+   "paid_at": "Booking rate"
+  },
+  {
+   "n": 3,
+   "name": "Reminders before every assessment",
+   "buys": "Fewer empty driveways. Show rate from 56% to between 60 and 68%.",
+   "tax": "No extra media. Run by the same callback role, already costed.",
+   "paid_at": "Covered in lever 1"
+  }
+ ]
+}

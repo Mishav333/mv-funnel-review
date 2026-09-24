@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Funnel Review · Halden Home Energy · Concept C: The Stage</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#101A2E; --bone:#F2EFE8; --signal:#FF5A1F; --sage:#C9D8C5; --ink:#0B1220;
+  --sans:'Schibsted Grotesk',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-family:var(--sans);-webkit-font-smoothing:antialiased;scroll-snap-type:y proximity;background:var(--navy)}
+html.mv-wait body{opacity:0} html.mv-ready body{opacity:1;transition:opacity .5s ease}
+body{overflow-x:hidden}
+.tn{font-variant-numeric:tabular-nums lining-nums}
+h1,h2,h3,p{text-wrap:balance}
+.slide{min-height:100svh;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;justify-content:space-between;padding:36px 5.5vw 40px;overflow:hidden}
+.navy{background:var(--navy);color:var(--bone)} .bone{background:var(--bone);color:var(--ink)}
+.sig{background:var(--signal);color:var(--ink)} .sage{background:var(--sage);color:var(--ink)}
+.top{display:flex;justify-content:space-between;gap:16px;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;opacity:.7}
+.mid{flex:1;display:flex;flex-direction:column;justify-content:center;padding:4vh 0}
+.giant{font-size:min(clamp(120px,24vw,400px),40vh);font-weight:800;line-height:.8;letter-spacing:-.065em;margin-left:-.04em}
+.giant.md{font-size:min(clamp(96px,17vw,280px),30vh)}
+.line{font-size:clamp(28px,3.6vw,56px);font-weight:500;line-height:1.08;letter-spacing:-.03em;max-width:22ch;margin-top:4vh}
+.line b{font-weight:800}
+.sub{font-size:clamp(17px,1.35vw,20px);line-height:1.5;max-width:52ch;margin-top:3vh;opacity:.78;text-wrap:pretty}
+.foot{display:flex;justify-content:space-between;gap:16px;font-size:14px;font-weight:500;opacity:.78;flex-wrap:wrap}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(40px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.12s}.d2{transition-delay:.24s}.d3{transition-delay:.36s}
+
+/* cover */
+.cover .giant{font-size:min(clamp(84px,14.5vw,236px),22vh);line-height:.86}
+.cover .giant span{display:block}
+.cover .giant .o{color:var(--signal)}
+
+/* meter: fraction strip under giant numbers */
+.meter{display:flex;height:22px;margin-top:5vh;max-width:1100px;gap:3px}
+.meter i{display:block;height:100%;transform-origin:left;transform:scaleX(0);transition:transform 1.1s cubic-bezier(.2,.7,.2,1) .35s}
+.rv.in .meter i,.in .meter i{transform:scaleX(1)}
+.meter-cap{display:flex;justify-content:space-between;max-width:1100px;margin-top:10px;font-size:14px;font-weight:600;gap:12px}
+
+/* speed race */
+.race{margin-top:5vh;display:grid;gap:22px;max-width:1200px}
+.lane{display:grid;grid-template-columns:260px 1fr 120px;align-items:center;gap:24px}
+.lane .l{font-size:18px;font-weight:600;line-height:1.25}
+.lane .l small{display:block;font-weight:400;font-size:14px;opacity:.65;margin-top:4px}
+.lane .t{height:56px;background:rgba(242,239,232,.08);position:relative}
+.lane .t i{position:absolute;inset:0 auto 0 0;width:0;transition:width 1.4s cubic-bezier(.2,.7,.2,1)}
+.in .lane .t i{width:var(--w)}
+.lane .p{font-size:52px;font-weight:800;letter-spacing:-.04em;text-align:right}
+
+/* trade cards */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:5vh}
+.card{background:var(--bone);color:var(--ink);padding:30px 28px 28px;display:flex;flex-direction:column;gap:18px}
+.card .k{font-size:15px;font-weight:800;color:var(--signal);letter-spacing:.02em}
+.card h3{font-size:26px;font-weight:700;line-height:1.1;letter-spacing:-.025em}
+.card .pm{border-top:2px solid var(--ink);padding-top:14px}
+.card .pm+.pm{border-top-style:dashed}
+.card .pm b{display:block;font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+.card .pm p{font-size:16px;line-height:1.45;text-wrap:pretty}
+.card .pm.minus b{color:#C2410C}
+
+/* range */
+.range{position:relative;margin-top:7vh;max-width:1200px;height:150px}
+.range .track{position:absolute;left:0;right:0;top:74px;height:4px;background:rgba(11,18,32,.18)}
+.range .span{position:absolute;top:66px;height:20px;background:var(--ink);transform-origin:left;transform:scaleX(0);transition:transform 1.2s cubic-bezier(.2,.7,.2,1) .3s}
+.in .range .span{transform:scaleX(1)}
+.range .pt{position:absolute;top:0;transform:translateX(-50%);text-align:center;white-space:nowrap}
+.range .pt .v{font-size:40px;font-weight:800;letter-spacing:-.03em;line-height:1}
+.range .pt .n{font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px;opacity:.7}
+.range .pt.below{top:100px}
+.range .pt.below .n{margin:6px 0 0}
+.range .pip{position:absolute;top:62px;width:4px;height:28px;background:var(--ink);transform:translateX(-50%)}
+.range .pip.today{background:transparent;border:2px solid var(--ink);width:14px;height:14px;border-radius:50%;top:69px}
+.range .pip.exp{background:var(--signal);width:8px;height:40px;top:56px}
+.assume{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:6vh;max-width:1200px}
+.assume h4{font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.assume p{font-size:15.5px;line-height:1.5;margin-top:8px;opacity:.8;text-wrap:pretty}
+
+/* plan */
+.plan{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:6vh;border-top:3px solid var(--bone)}
+.plan>div{padding:26px 26px 0 0}
+.plan>div+div{padding-left:26px;border-left:1px solid rgba(242,239,232,.2)}
+.plan .w{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--signal)}
+.plan h3{font-size:clamp(30px,3vw,46px);font-weight:800;letter-spacing:-.035em;line-height:1;margin:14px 0 12px}
+.plan p{font-size:16.5px;line-height:1.5;opacity:.75;text-wrap:pretty}
+
+/* rail */
+.mv-rail{position:fixed;right:18px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:12px;z-index:40;mix-blend-mode:difference}
+.mv-rail button{width:8px;height:8px;border-radius:50%;border:0;background:rgba(255,255,255,.45);cursor:pointer;padding:0;transition:transform .3s,background .3s}
+.mv-rail button[aria-current]{background:#fff;transform:scale(1.5)}
+.mv-rail button:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.keys{position:fixed;right:44px;bottom:14px;font-size:12px;font-weight:600;color:#fff;mix-blend-mode:difference;z-index:40;opacity:.8}
+
+@media (max-width:860px){
+  .slide{padding:26px 6vw 30px}
+  .top{font-size:11px}
+  .giant{font-size:clamp(110px,34vw,220px)}
+  .giant.md{font-size:clamp(84px,26vw,160px)}
+  .cover .giant{font-size:clamp(58px,17vw,110px)}
+  .line{font-size:clamp(26px,7vw,36px);margin-top:3vh}
+  .meter{height:16px}
+  .meter-cap{font-size:12px}
+  .lane{grid-template-columns:1fr auto;gap:8px 12px}
+  .lane .t{grid-column:1/-1;grid-row:2;height:30px}
+  .lane .p{grid-row:1;grid-column:2;font-size:34px}
+  .lane .l{font-size:16px}
+  .cards{grid-template-columns:1fr;gap:12px;margin-top:3vh}
+  .card{padding:20px 18px;gap:12px}.card h3{font-size:21px}.card .pm p{font-size:14.5px}
+  .range{height:170px}
+  .range .pt .v{font-size:24px}.range .pt .n{font-size:10px;letter-spacing:.06em}
+  .assume{grid-template-columns:1fr;gap:16px;margin-top:3vh}
+  .plan{grid-template-columns:1fr}
+  .plan>div+div{padding-left:0;border-left:0;border-top:1px solid rgba(242,239,232,.2)}
+  .plan>div{padding:18px 0}
+  .mv-rail{right:8px}.keys{display:none}
+}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.meter i,.range .span{transform:none;transition:none}.lane .t i{transition:none;width:var(--w)}}
+</style>
+</head>
+<body>
+
+<!-- 1 COVER -->
+<section class="slide navy cover" data-beat="Cover">
+  <div class="top"><span>Funnel Review · Halden Home Energy</span><span class="tn">7 Jul to 14 Sep 2026</span></div>
+  <div class="mid">
+    <h1 class="giant tn rv"><span><span data-bind="spend" data-fmt="usd"></span> in.</span><span class="o">16 contracts out.</span></h1>
+    <p class="line rv d1" style="font-weight:500">Here is what happened in between.</p>
+  </div>
+  <div class="foot"><span>Prepared by MV Advisory</span><span>Sample client · illustrative figures</span></div>
+</section>
+
+<!-- 2 VERDICT: the good part -->
+<section class="slide bone" data-beat="The verdict">
+  <div class="top"><span>01 · The verdict</span><span>The ads</span></div>
+  <div class="mid">
+    <div class="giant tn rv" data-bind="stages.1.count" data-fmt="num"></div>
+    <p class="line rv d1">people asked for a quote. <b>The ads are working.</b></p>
+    <p class="sub rv d2">One in ten landing page visitors raised their hand. For a cold audience and a big-ticket purchase, that is healthy. The problem starts after.</p>
+  </div>
+  <div class="foot"><span class="tn"><span data-bind="stages.1.cost_each" data-fmt="usd"></span> per quote request</span><span>Source: ad account and CRM, same period</span></div>
+</section>
+
+<!-- 3 LEAK 1 -->
+<section class="slide sig" data-beat="Where it leaks">
+  <div class="top"><span>02 · Where it leaks</span><span>Leak one</span></div>
+  <div class="mid">
+    <div class="giant tn rv" data-bind="outcomes.0.count" data-fmt="num"></div>
+    <p class="line rv d1">never booked an assessment. <b>Nobody reached them in time.</b></p>
+    <div class="meter rv d2" aria-hidden="true"><i style="flex:157;background:var(--ink)"></i><i style="flex:255;background:rgba(11,18,32,.22)"></i></div>
+    <div class="meter-cap tn rv d2"><span>157 booked</span><span><span data-bind="outcomes.0.share" data-fmt="pct"></span> of quote requests · <span data-bind="outcomes.0.dollars" data-fmt="usd"></span> of spend</span></div>
+  </div>
+  <div class="foot"><span>Quote requests that never became a booking</span><span></span></div>
+</section>
+
+<!-- 4 LEAK 2 -->
+<section class="slide sig" data-step>
+  <div class="top"><span>02 · Where it leaks</span><span>Leak two</span></div>
+  <div class="mid">
+    <div class="giant tn rv" data-bind="outcomes.1.count" data-fmt="num"></div>
+    <p class="line rv d1">booked an assessment, then <b>didn’t open the door.</b></p>
+    <div class="meter rv d2" aria-hidden="true"><i style="flex:88;background:var(--ink)"></i><i style="flex:69;background:rgba(11,18,32,.22)"></i></div>
+    <div class="meter-cap tn rv d2"><span>88 attended</span><span>44% of bookings · <span data-bind="outcomes.1.dollars" data-fmt="usd"></span> of spend</span></div>
+  </div>
+  <div class="foot"><span>No reminder, no confirmation, no second call</span><span></span></div>
+</section>
+
+<!-- 5 GOOD NEWS -->
+<section class="slide sage" data-step>
+  <div class="top"><span>02 · Where it leaks</span><span>What works</span></div>
+  <div class="mid">
+    <div class="giant tn rv"><span data-bind="stages.5.conv" data-fmt="pct"></span></div>
+    <p class="line rv d1">of proposals signed. <b>Once they’re in the room, the team closes.</b></p>
+    <p class="sub rv d2">Sales is not the constraint. Getting people into the room is. That changes where the next dollar should go.</p>
+  </div>
+  <div class="foot tn"><span><span data-bind="stages.4.count" data-fmt="num"></span> proposals · <span data-bind="stages.5.count" data-fmt="num"></span> signed</span><span></span></div>
+</section>
+
+<!-- 6 EVIDENCE -->
+<section class="slide navy" data-beat="The evidence">
+  <div class="top"><span>03 · The evidence</span><span>Speed to lead</span></div>
+  <div class="mid">
+    <p class="line rv" style="margin-top:0;max-width:24ch">The biggest predictor of a booking is <b>how fast someone calls back.</b></p>
+    <div class="race rv d1" id="race"></div>
+  </div>
+  <div class="foot"><span>Quote requests matched to first outbound call in the CRM. Same ads, same offer, same audience.</span><span></span></div>
+</section>
+
+<!-- 7 TRADE-OFFS -->
+<section class="slide navy" data-beat="The plan, with its costs" style="border-top:1px solid rgba(242,239,232,.12)">
+  <div class="top"><span>04 · The plan, with its costs</span><span>Three changes</span></div>
+  <div class="mid">
+    <p class="line rv" style="margin-top:0">Every fix has a price. <b>We show it.</b></p>
+    <div class="cards" id="cards"></div>
+  </div>
+  <div class="foot"><span>Each cost is charged to the stage where it lands, before any outcome is forecast.</span><span></span></div>
+</section>
+
+<!-- 8 SCENARIOS -->
+<section class="slide bone" data-beat="What it’s worth">
+  <div class="top"><span>05 · What it’s worth</span><span>Next ten weeks, same media</span></div>
+  <div class="mid">
+    <div class="giant md tn rv"><span data-bind="scenarios.expected.signed_r"></span> <span style="font-size:.32em;letter-spacing:-.03em;font-weight:700">contracts, expected</span></div>
+    <p class="line rv d1" style="max-width:30ch">Somewhere between <b><span data-bind="scenarios.conservative.signed_r"></span> and <span data-bind="scenarios.stretch.signed_r"></span></b>. Up from 16, on the same media spend.</p>
+    <div class="range rv d2" id="range" aria-label="Cost per contract by scenario"></div>
+    <div class="assume rv d3" id="assume"></div>
+  </div>
+  <div class="foot tn"><span>Cost per signed contract, cheaper to the right. Forward scenarios include the $3,000 callback role.</span><span></span></div>
+</section>
+
+<!-- 9 CLOSE -->
+<section class="slide navy" data-beat="Next 90 days">
+  <div class="top"><span>06 · The next 90 days</span><span>Prepared by MV Advisory</span></div>
+  <div class="mid">
+    <h2 class="giant md rv" style="font-size:clamp(64px,10vw,168px);line-height:.9">Fix the first hour. <span style="color:var(--signal)">Then spend more.</span></h2>
+    <div class="plan rv d1">
+      <div><div class="w">Weeks 1 to 3</div><h3>Answer faster.</h3><p>A callback role in place, so every quote request is called inside the hour. Reminders on every booked assessment.</p></div>
+      <div><div class="w">Weeks 4 to 8</div><h3>Widen carefully.</h3><p>Broaden the audience in one controlled test. Judge it on cost per attended assessment, never cost per lead.</p></div>
+      <div><div class="w">Weeks 9 to 12</div><h3>Scale what pays.</h3><p>Add spend once advertising sits under 40% of job profit. Until then, more budget buys more leak.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span>Halden Home Energy is a sample client. All figures illustrative.</span><span>MV Advisory</span></div>
+</section>
+
+<div class="keys">↑ ↓ or space · F for full screen</div>
+
+<script src="../../shared/data.js"></script>
+<script src="../../shared/present.js"></script>
+<script>
+(function(){
+  const D = window.MV_DATA;
+  /* race */
+  const race = document.getElementById('race');
+  const max = Math.max(...D.speed.map(s => s.rate));
+  const col = ['#C9D8C5', '#F2EFE8', '#FF5A1F'];
+  D.speed.forEach((s, i) => {
+    const r = document.createElement('div'); r.className = 'lane';
+    r.innerHTML = `<div class="l">${s.label}<small class="tn">${MV.num(s.booked)} of ${MV.num(s.n)} booked</small></div><div class="t"><i style="--w:${(s.rate / max * 100).toFixed(1)}%;background:${col[i]};transition-delay:${.2 + i * .15}s"></i></div><div class="p tn" style="color:${col[i]}">${s.rate}%</div>`;
+    race.appendChild(r);
+  });
+  /* cards */
+  const cards = document.getElementById('cards');
+  D.levers.forEach((l, i) => {
+    const c = document.createElement('div'); c.className = 'card rv d' + (i + 1);
+    c.innerHTML = `<span class="k">0${l.n}</span><h3>${l.name}</h3><div class="pm"><b>+ What it buys</b><p>${l.buys}</p></div><div class="pm minus"><b>− What it costs</b><p>${l.tax}</p></div>`;
+    cards.appendChild(c);
+  });
+  /* range */
+  const R = document.getElementById('range');
+  const lo = 1000, hi = 2600, pos = v => ((hi - v) / (hi - lo) * 100);
+  const sc = D.scenarios;
+  R.innerHTML = `<div class="track"></div><div class="span" style="left:${pos(sc.conservative.cost_per_contract)}%;width:${pos(sc.stretch.cost_per_contract) - pos(sc.conservative.cost_per_contract)}%"></div>`;
+  const pts = [['stretch', 'Stretch', false, ''], ['expected', 'Expected', true, 'exp'], ['conservative', 'Conservative', false, ''], ['today', 'Today', true, 'today']];
+  pts.forEach(([k, n, below, cls]) => {
+    const v = sc[k].cost_per_contract;
+    R.insertAdjacentHTML('beforeend', `<div class="pip ${cls}" style="left:${pos(v)}%"></div>`);
+    R.insertAdjacentHTML('beforeend', below
+      ? `<div class="pt below tn" style="left:${pos(v)}%${k === 'expected' ? ';color:#C2410C' : ''}"><div class="v">${MV.usd(v)}</div><div class="n">${n}</div></div>`
+      : `<div class="pt tn" style="left:${pos(v)}%"><div class="n">${n}</div><div class="v">${MV.usd(v)}</div></div>`);
+  });
+  const A = document.getElementById('assume');
+  const t = {
+    conservative: 'Leads up 20%. Colder leads outweigh faster callbacks, so booking falls to 36%. Show rate 60%.',
+    expected: 'Leads up 30%. Callbacks lift bookings, colder leads take four points back: 40%. Show rate 64%.',
+    stretch: 'Leads up 40%. Booking 45%, show rate 68%, close rate 27%. Everything has to go right.',
+  };
+  ['conservative', 'expected', 'stretch'].forEach(k => A.insertAdjacentHTML('beforeend', `<div><h4 ${k === 'expected' ? 'style="color:#C2410C"' : ''}>${k[0].toUpperCase() + k.slice(1)} · ${sc[k].signed_r} contracts</h4><p>${t[k]}</p></div>`));
+  /* slide-level "in" class so meters/race animate even without .rv on container */
+  if ('IntersectionObserver' in window && !MV.reduce()) {
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .35 });
+    document.querySelectorAll('.slide').forEach(s => io.observe(s));
+  } else document.querySelectorAll('.slide').forEach(s => s.classList.add('in'));
+})();
+</script>
+</body>
+</html>
